@@ -1,0 +1,23 @@
+@use "sass:map";
+
+@function get-br($size){
+    $grid-breakpoints: (
+        xs: 0,
+        sm: 480px,
+        md: 768px,
+        lg: 1024px
+    );
+    @return map.get($grid-breakpoints, $size);
+}
+
+.contenido{
+    @media (min-width: get-br(md)) {
+        width: 60%;
+
+		form{
+			flex-wrap: nowrap;
+		}
+    }
+}
+
+

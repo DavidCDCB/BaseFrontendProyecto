@@ -1,0 +1,19 @@
+@import "./variables";
+@import "./mixins";
+
+.contenido{
+    max-width: 100%;
+
+    form{
+        display: flex;
+		flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .search-button {
+        font-style: italic;
+        &:hover{
+			@include hover-element($backColor);
+        }
+    }
+}

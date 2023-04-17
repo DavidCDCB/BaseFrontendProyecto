@@ -1,0 +1,5 @@
+@mixin hover-element($color){
+	background-color: rgba(#1a4153, 1.0);
+	font-weight: bold;
+	color: $color;
+}
