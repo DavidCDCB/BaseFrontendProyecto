@@ -1,4 +1,4 @@
-export interface Client {
+export interface IClient {
 	name: string | undefined;
 	surname: string | undefined;
 	phone: string | undefined;

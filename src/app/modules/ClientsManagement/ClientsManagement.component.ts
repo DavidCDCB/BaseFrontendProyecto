@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Client } from 'src/app/models/Client';
+import { IClient } from 'src/app/models/Client.interface';
 import { RequestsControllerService } from 'src/app/services/RequestsController.service';
 
 @Component({
@@ -10,12 +10,12 @@ import { RequestsControllerService } from 'src/app/services/RequestsController.s
 export class ClientsManagementComponent implements OnInit {
 
   constructor(
-    private HTTPClient: RequestsControllerService<Client>
+    private HTTPClient: RequestsControllerService<IClient>
   ){}
 
   ngOnInit(){
     
-    let client: Client = {
+    let client: IClient = {
       name: "David",
       surname: "Cruz",
       phone: "34324324",
@@ -29,15 +29,15 @@ export class ClientsManagementComponent implements OnInit {
 
   getClients(): void {
     this.HTTPClient.getElement("Client").subscribe(
-      (clients: Client[]) => {
+      (clients: IClient[]) => {
         console.log(clients);
       }
     )
   } 
 
-  setClient(client: Client): void {
+  setClient(client: IClient): void {
     this.HTTPClient.saveElement("Client", client).subscribe(
-      (client: Client) => {
+      (client: IClient) => {
         console.log(client);
       }
     )

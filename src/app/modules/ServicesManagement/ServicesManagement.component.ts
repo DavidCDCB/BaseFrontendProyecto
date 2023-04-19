@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-ServicesManagement',
@@ -8,19 +8,19 @@ import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
   styleUrls: ['./ServicesManagement.component.scss']
 })
 export class ServicesManagementComponent implements OnInit {
-  id?: string = '';
-  public registerForm!: FormGroup;
+  id?: string;
+  registerForm!: FormGroup;
 
   constructor(
     private route: ActivatedRoute,
     private formBuilder: FormBuilder
   ) { }
 
-  formInit(): FormGroup{
+  formInit(): FormGroup {
     return this.formBuilder.group({
       origen: ['', [Validators.required, Validators.pattern("[A-Z]{3}")]],
       destino: ['', [Validators.required, Validators.pattern("[A-Z]{3}")]],
-  });
+    });
   }
 
   ngOnInit() {
