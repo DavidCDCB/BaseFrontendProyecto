@@ -1,8 +1,8 @@
-export class Client {
-	public name: string | undefined;
-	public surname: string | undefined;
-	public phone: string | undefined;
-	public type: string | undefined;
-	public email: string | undefined;
-	public address: string| undefined;
+export interface Client {
+	name: string | undefined;
+	surname: string | undefined;
+	phone: string | undefined;
+	type: string | undefined;
+	email: string | undefined;
+	address: string| undefined;
 }

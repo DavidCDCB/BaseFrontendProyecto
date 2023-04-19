@@ -18,7 +18,7 @@ const routes: Routes = [
     component: ClientsManagementComponent,
   },
   {
-    path: 'services',
+    path: 'services/:id',
     component: ServicesManagementComponent,
   }
 ];

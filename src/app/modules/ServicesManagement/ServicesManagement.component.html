@@ -1,3 +1,58 @@
 <p>
-  ServicesManagement works!
+  ServicesManagement works! 
 </p>
+
+<ng-container *ngFor="let item of [1,2,3,4]; let i = index; let primero = first">
+  <div *ngIf="primero; else noPrimero">{{item}}</div>
+  <ng-template #noPrimero > 
+    <div [ngStyle]="{ backgroundColor: 'gray'}">{{item}}</div>
+  </ng-template>
+</ng-container>
+
+<ul>
+  <ng-template ngFor let-item [ngForOf]="[1,2,3,4]">
+    <li>{{item}}</li>
+  </ng-template>
+</ul>
+
+<ng-container *ngIf="id != ''; then conDato; else sinDato"/>
+
+<div >{{id}}</div>
+
+<ng-template #sinDato>
+  <div class="alert alert-danger" role="alert">
+    No se encontraron datos
+  </div>
+</ng-template>
+
+<ng-template #conDato>
+  <div class="alert alert-success" role="alert">
+    Hay datos
+  </div>
+</ng-template>
+
+
+<form [formGroup]="registerForm">
+	<div class="d-flex justify-content-center">
+		<h1 class="text-white">🛫Rutas de vuelo🛬</h1>
+	</div>
+
+	<div class="row my-2">
+		<div class="col-6">
+			<input required formControlName="origen"
+				name="origen" placeholder="Origen" type="text" class="form-control" >
+		</div>
+		<div class="col-6">
+			<input required formControlName="destino"
+				name="destino" placeholder="Destino" class="form-control" >
+		</div>
+	</div>
+
+  <button class="btn btn-primary">
+    Generar ruta de vuelo</button>
+    {{registerForm.get("origen")?.pristine}}
+    {{registerForm.get("origen")?.touched}}
+    {{registerForm.get("origen")?.value}}
+
+    {{registerForm.value | json}}
+</form>
