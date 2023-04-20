@@ -31,6 +31,7 @@
             ],
             "styles": [
               "bootswatch/dist/darkly/bootstrap.min.css",
+              "material-design-icons-iconfont/dist/material-design-icons.min.css",
               "src/sass/styles.scss"
             ],
             "stylePreprocessorOptions": {

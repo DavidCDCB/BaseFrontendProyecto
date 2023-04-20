@@ -17,6 +17,8 @@ export class SupplierTableComponent {
   @Output()
   onUpdate = new EventEmitter<ISupplier>();
 
+  filter?: string;
+
   sendIdDelete(supplier: ISupplier): void {
     this.onDelete.emit(supplier);
   }

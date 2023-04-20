@@ -15,6 +15,7 @@ export class SupplierFormComponent implements OnInit {
 
   supplierForm!: FormGroup;
   isUpdate: boolean = false;
+  idForUpdate: number = 0;
 
   constructor(
     private formBuilder: FormBuilder
@@ -30,7 +31,7 @@ export class SupplierFormComponent implements OnInit {
       company: ['asd', [Validators.required]],
       nit: ['213', [Validators.required]],
       name: ['sdasd', [Validators.required]],
-      surname: ['asd', [Validators.required]],
+      surName: ['asd', [Validators.required]],
       phone: ['3432', [Validators.required]],
       email: ['sddas', [Validators.required]],
       address: ['asd', [Validators.required]],
@@ -38,17 +39,9 @@ export class SupplierFormComponent implements OnInit {
   }
 
   saveSupplier(): void {
-    if(!this.isUpdate){
-      this.onSubmit.emit({
-        action: "save",
-        data: this.supplierForm.value
-      });
-      this.supplierForm.reset();
-    }else{
-      this.onSubmit.emit({
-        action: "update",
-        data: this.supplierForm.value
-      });
+    this.onSubmit.emit(this.supplierForm.value);
+    this.supplierForm.reset();
+    if(this.isUpdate){
       this.isUpdate = false;
     }
   }
@@ -60,9 +53,9 @@ export class SupplierFormComponent implements OnInit {
   }
 
 
-  changeField(element: ISupplier): void {
+  changeFields(element: ISupplier): void {
     this.isUpdate = true;
-    console.log("OK");
+    console.log(element);
     if (element) {
       this.supplierForm.patchValue(element);
     }

@@ -31,23 +31,42 @@ export class SupplierManagementComponent implements OnInit {
   }
 
   saveSupplier(supplier: any): void {
+    
     if(!this.childFormComponent.isUpdate){
       console.log("save");
-      this.suppliers?.push(supplier.data);
+      this.HTTPClient.saveElement("Supplier", supplier).subscribe(
+        (supplier: ISupplier) => {
+          console.log(supplier);
+          this.suppliers?.unshift(supplier);
+        }
+      )
     }else{
       console.log("update");
+      console.log(supplier);
+      
+      this.HTTPClient.updateElement("Supplier", supplier, this.childFormComponent.idForUpdate).subscribe(
+        (supplier: ISupplier) => {
+          console.log(supplier);
+          this.suppliers = this.suppliers?.map(x => x.id === supplier.id ? supplier : x);
+        }
+      )
     }
 
   }
 
-  getIdDelete(supplier: ISupplier): void {
-    console.log(supplier);
-    
+  deleteSupplier(supplier: ISupplier): void {
+    this.HTTPClient.deleteElement("Supplier", supplier.id).subscribe(
+      (supplier: ISupplier) => {
+        console.log(supplier);
+        this.suppliers = this.suppliers?.filter(x => x.id !== supplier.id);
+      }
+    );
   }
 
-  getIdUpdate(supplier: ISupplier): void {
+  updateSupplier(supplier: ISupplier): void {
     console.log(supplier);
-    this.childFormComponent.changeField(supplier);
+    this.childFormComponent.idForUpdate = supplier.id;
+    this.childFormComponent.changeFields(supplier);
   }
 
   redirect(): void {

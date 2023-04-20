@@ -4,5 +4,5 @@
 <button (click)="redirect()" type="button" class="btn btn-primary">Redireccionar</button>
 <app-supplier-form #childForm (onSubmit)="saveSupplier($event)"/>
 <app-supplier-table [listOfSuppliers]="suppliers" 
-  (onDelete)="getIdDelete($event)" 
-  (onUpdate)="getIdUpdate($event)" />
+  (onDelete)="deleteSupplier($event)" 
+  (onUpdate)="updateSupplier($event)" />
