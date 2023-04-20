@@ -85,14 +85,15 @@
 	<div class="row my-2">
 		<div class="mt-2">
 			<button [disabled]="!supplierForm.valid"
-				[ngClass]="isUpdate ? 'btn btn-success' : 'btn btn-primary'">
+				[ngClass]="{
+					'btn-success': isUpdate,
+					'btn-primary': !isUpdate,
+					'btn d-flex align-items-center': true
+				}">
 				{{isUpdate ? 'Actualizar proveedor' : 'Registrar proveedor'}}
+				<i class="material-icons">save</i>
 			</button>
 		</div>
 	</div>
 
 </form>
-
-{{supplierForm.value | json}}
-
-{{supplierForm.get('company')?.pristine | json}}

@@ -27,4 +27,10 @@ export class SupplierTableComponent {
     this.onUpdate.emit(supplier);
   }
 
+  filterList(): ISupplier[] | undefined {
+    return (this.filter) ? this.listOfSuppliers?.filter(supplier => {
+      return Object.values(supplier).join('').toLowerCase().includes(this.filter!.toLowerCase()); 
+    }) : this.listOfSuppliers;
+  }
+
 }
