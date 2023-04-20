@@ -30,6 +30,24 @@ export class RequestsControllerService<T> {
     )
   }
 
+  updateElement(endpoint: string, element: T, id: number): Observable<T> {
+    return this.http.put<T>(this.urApi + endpoint + id, element).pipe(
+      catchError((error: HttpErrorResponse): Observable<any> => {
+        console.error('There was an error!', error);
+        return throwError(() => new Error(this.getServerErrorMessage(error)));
+      })
+    )
+  }
+
+  deleteElement(endpoint: string, id: number): Observable<T> {
+    return this.http.delete<T>(this.urApi + endpoint + id).pipe(
+      catchError((error: HttpErrorResponse): Observable<any> => {
+        console.error('There was an error!', error);
+        return throwError(() => new Error(this.getServerErrorMessage(error)));
+      })
+    )
+  }
+
   private getServerErrorMessage(error: HttpErrorResponse): string {
     switch (error.status) {
       case 404: {

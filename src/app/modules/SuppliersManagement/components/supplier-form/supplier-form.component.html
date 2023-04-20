@@ -1,0 +1,77 @@
+<div class="d-flex justify-content-center">
+	<h3 class="text-white">Gestión de proveedores</h3>
+</div>
+
+<form [formGroup]="supplierForm">
+	<div class="row my-2">
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="company" name="company" type="text" placeholder="Nombre de la empresa"
+					[className]="checkInput('company') ? 'form-control is-invalid' : 'form-control'">
+				<label for="company">Nombre de la empresa</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="nit" name="nit" type="text" placeholder="NIT de la empresa"
+					[className]="checkInput('nit') ? 'form-control is-invalid' : 'form-control'">
+				<label for="company">NIT de la empresa</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row my-2">
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="name" name="name" type="text" placeholder="Nombre del encargado"
+					[className]="checkInput('name') ? 'form-control is-invalid' : 'form-control'">
+				<label for="name">Nombre del encargado</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="surname" name="surname" type="text" placeholder="Apellido del encargado"
+					[className]="checkInput('surname') ? 'form-control is-invalid' : 'form-control'">
+				<label for="surname">Apellido del encargado</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row my-2">
+		<div class="col-4">
+			<input required formControlName="phone" name="phone" placeholder="Celular del encargado" type="text"
+				class="form-control">
+		</div>
+		<div class="col-4">
+			<input required formControlName="email" name="email" placeholder="Correo del encargado"
+				class="form-control">
+		</div>
+		<div class="col-4">
+			<input required formControlName="address" name="address" placeholder="Dirección de la empresa"
+				class="form-control">
+		</div>
+	</div>
+
+	<div class="row my-2">
+		<div class="mt-2">
+			<button [disabled]="!supplierForm.valid" class="btn btn-primary">Registrar proveedor</button>
+		</div>
+	</div>
+
+</form>
+
+{{supplierForm.value | json}}
+
+{{supplierForm.get('company')?.pristine | json}}

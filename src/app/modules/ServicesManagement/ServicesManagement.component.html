@@ -17,7 +17,9 @@
 
 <ng-container *ngIf="id != ''; then conDato; else sinDato"/>
 
-<div >{{id}}</div>
+<div>{{id}}</div>
+<div>{{extraData}}</div>
+<div>{{data}}</div>
 
 <ng-template #sinDato>
   <div class="alert alert-danger" role="alert">
@@ -55,4 +57,5 @@
     {{registerForm.get("origen")?.value}}
     {{registerForm.get("origen")?.errors | json}}
     {{registerForm.value | json}}
+    {{registerForm.valid}}
 </form>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-SupplierManagement',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SupplierManagementComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  redirect(): void {
+    this.router.navigate(
+      [`services/${'dato'}`], 
+      { state: { data: 'Dato compuesto' }, 
+      queryParams: { otroDato: '1' } }
+    );
   }
 
 }

@@ -9,6 +9,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ServicesManagementComponent implements OnInit {
   id?: string;
+  data?: any;
+  extraData: any;
   registerForm!: FormGroup;
 
   constructor(
@@ -25,11 +27,21 @@ export class ServicesManagementComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id')!;
+    this.data = history.state.data;
+    this.route.queryParams.subscribe((params: any) => {
+      this.extraData = params['otroDato'];
+    })
+    
     this.registerForm = this.formInit();
     this.registerForm.setValue({
       origen: this.id,
       destino: this.id
     })
+    this.registerForm.valueChanges.subscribe(
+      (data: any) => {
+        console.log(data);
+      }
+    )
   }
 
 }
