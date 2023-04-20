@@ -2,7 +2,7 @@
 	<h3 class="text-white">Gestión de proveedores</h3>
 </div>
 
-<form [formGroup]="supplierForm">
+<form [formGroup]="supplierForm" (ngSubmit)="saveSupplier()" >
 	<div class="row my-2">
 		<div class="col-6">
 			<div class="form-floating">
@@ -66,7 +66,10 @@
 
 	<div class="row my-2">
 		<div class="mt-2">
-			<button [disabled]="!supplierForm.valid" class="btn btn-primary">Registrar proveedor</button>
+			<button [disabled]="!supplierForm.valid"
+				[ngClass]="isUpdate ? 'btn btn-success' : 'btn btn-primary'">
+				{{isUpdate ? 'Actualizar proveedor' : 'Registrar proveedor'}}
+			</button>
 		</div>
 	</div>
 

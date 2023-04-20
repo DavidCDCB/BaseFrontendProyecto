@@ -1,1 +1,21 @@
-<p>supplier-table works!</p>
+<table class="table table-sm table-striped table-hover">
+	<thead class="table-dark header">
+		<tr>
+			<th scope="Origen">Origen</th>
+			<th scope="Origen">Opciones</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let supplier of listOfSuppliers; let i = index">
+			<td>{{supplier.id}}</td>
+			<td>
+				<button type="button" class="btn btn-danger" (click)="sendIdDelete(supplier)">
+					Button
+				</button>
+				<button type="button" class="btn btn-warning" (click)="sendIdUpdate(supplier)">
+					Button
+				</button>
+			</td>
+		</tr>
+	</tbody>
+</table>
