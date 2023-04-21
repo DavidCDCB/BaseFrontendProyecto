@@ -14,7 +14,7 @@ import { catchError, throwError } from 'rxjs';
 export class SupplierManagementComponent implements OnInit {
 
   @ViewChild('childForm') childFormComponent!: SupplierFormComponent;
-  suppliers?: ISupplier[] = [];
+  suppliers: ISupplier[] = [];
 
   constructor(private router: Router, private HTTPClient: RequestsControllerService<ISupplier>) { }
 
@@ -23,21 +23,17 @@ export class SupplierManagementComponent implements OnInit {
   }
 
   getSuppliers(): ISupplier[] {
-    this.HTTPClient.getElement('Supplier').pipe(
-      catchError(error => {
-        this.showToast('Error al realizar el proceso', 'error');
-        return throwError(() => new Error(error));
-      })
-    ).subscribe(
-      (suppliers: ISupplier[]) => {
+    this.HTTPClient.getElement('Supplier').subscribe({
+      next: (suppliers: ISupplier[]) => {
         this.suppliers = suppliers;
-      }
-    )
+      },
+      error: (error) => this.showToast('Error al obtener proveedores', 'error')
+    });
     return this.suppliers!;
   }
 
   saveSupplier(supplier: ISupplier): void {
-    if(!this.childFormComponent.isUpdate){
+    if (!this.childFormComponent.isUpdate) {
       this.HTTPClient.saveElement('Supplier', supplier).subscribe(
         (supplier: ISupplier) => {
           console.log(supplier);
@@ -45,7 +41,7 @@ export class SupplierManagementComponent implements OnInit {
           this.suppliers?.push(supplier);
         }
       )
-    }else{
+    } else {
       this.HTTPClient.updateElement('Supplier', supplier, this.childFormComponent.idForUpdate).subscribe(
         (supplier: ISupplier) => {
           console.log(supplier);
@@ -103,9 +99,11 @@ export class SupplierManagementComponent implements OnInit {
 
   redirect(): void {
     this.router.navigate(
-      [`services/${'dato'}`], 
-      { state: { data: 'Dato compuesto' }, 
-      queryParams: { otroDato: '1' } }
+      [`services/${'dato'}`],
+      {
+        state: { data: 'Dato compuesto' },
+        queryParams: { otroDato: '1' }
+      }
     );
   }
 

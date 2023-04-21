@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
 import ISupplier from 'src/app/models/Supplier.interface';
@@ -11,7 +11,7 @@ import ISupplier from 'src/app/models/Supplier.interface';
 export class SupplierFormComponent implements OnInit {
 
   @Output()
-  onSubmit = new EventEmitter<any>();
+  onSubmit = new EventEmitter<ISupplier>();
 
   supplierForm!: FormGroup;
   isUpdate: boolean = false;
