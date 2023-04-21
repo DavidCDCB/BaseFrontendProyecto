@@ -17,13 +17,10 @@ export class SupplierFormComponent implements OnInit {
   isUpdate: boolean = false;
   idForUpdate: number = 0;
 
-  constructor(
-    private formBuilder: FormBuilder
-  ) {}
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
     this.initForm();
-
   }
 
   initForm(): void {
@@ -48,10 +45,8 @@ export class SupplierFormComponent implements OnInit {
 
   checkInput(input: string): boolean {
     const field = this.supplierForm.get(input);
-    
     return field!.pristine === false && field!.errors != null;
   }
-
 
   changeFields(element: ISupplier): void {
     this.isUpdate = true;

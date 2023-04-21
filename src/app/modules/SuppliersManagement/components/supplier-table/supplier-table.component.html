@@ -21,17 +21,13 @@
 				<td>{{supplier.phone}}</td>
 				<td>{{supplier.email}}</td>
 				<td>
-					<div class="row">
-						<div class="col-6">
-							<button type="button" class="btn btn-danger" (click)="sendIdDelete(supplier)">
-								<i class="material-icons">delete_forever</i>
-							</button>
-						</div>
-						<div class="col-6">
-							<button type="button" class="btn btn-warning" (click)="sendIdUpdate(supplier)">
-								<i class="material-icons">edit_note</i>
-							</button>
-						</div>
+					<div class="d-flex justify-content-around">
+						<button type="button" class="btn btn-danger btn-sm" (click)="sendIdDelete(supplier)">
+							<i class="material-icons">delete_forever</i>
+						</button>
+						<button type="button" class="btn btn-warning btn-sm" (click)="sendIdUpdate(supplier)">
+							<i class="material-icons">edit_note</i>
+						</button>
 					</div>
 				</td>
 			</tr>

@@ -1,6 +1,5 @@
-<app-supplier-form #childForm (onSubmit)="saveSupplier($event)"/>
-<app-supplier-table [listOfSuppliers]="suppliers" 
-  (onDelete)="deleteSupplier($event)" 
+<app-supplier-form #childForm (onSubmit)="saveSupplier($event)" />
+<app-supplier-table [listOfSuppliers]="suppliers" (onDelete)="deleteSupplier($event)"
   (onUpdate)="updateSupplier($event)" />
 
 
