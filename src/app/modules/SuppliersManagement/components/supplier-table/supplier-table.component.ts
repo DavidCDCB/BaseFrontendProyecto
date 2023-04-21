@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ISupplier } from 'src/app/models/Supplier.interface';
+import ISupplier from 'src/app/models/Supplier.interface';
 
 @Component({
   selector: 'app-supplier-table',
@@ -30,7 +30,7 @@ export class SupplierTableComponent {
   filterList(): ISupplier[] | undefined {
     return (this.filter) ? this.listOfSuppliers?.filter(supplier => {
       return Object.values(supplier).join('').toLowerCase().includes(this.filter!.toLowerCase()); 
-    }) : this.listOfSuppliers;
+    }).reverse() : this.listOfSuppliers!.reverse();
   }
 
 }

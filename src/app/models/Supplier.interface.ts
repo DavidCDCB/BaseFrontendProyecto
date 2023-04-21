@@ -1,4 +1,4 @@
-export interface ISupplier {
+export default interface ISupplier {
 	id:      number;
 	nit:     string;
 	name:    string;

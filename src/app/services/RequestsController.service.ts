@@ -13,15 +13,11 @@ export class RequestsControllerService<T> {
   constructor(private http: HttpClient) { }
 
   getElement(endpoint: string): Observable<T[]> {
-    return this.http.get<T[]>(this.urApi + endpoint).pipe(
-      catchError((error: HttpErrorResponse): Observable<any> => {
-        console.error('There was an error!', error);
-        return throwError(() => new Error(this.getServerErrorMessage(error)));
-      })
-    )
+    return this.http.get<T[]>(this.urApi + endpoint);
   }
 
   saveElement(endpoint: string, element: T): Observable<T> {
+    console.table(element);
     return this.http.post<T>(this.urApi + endpoint, element).pipe(
       catchError((error: HttpErrorResponse): Observable<any> => {
         console.error('There was an error!', error);
@@ -31,6 +27,7 @@ export class RequestsControllerService<T> {
   }
 
   updateElement(endpoint: string, element: T, id: number): Observable<T> {
+    console.table(element);
     return this.http.put<T>(this.urApi + endpoint + '/' + id, element).pipe(
       catchError((error: HttpErrorResponse): Observable<any> => {
         console.error('There was an error!', error);

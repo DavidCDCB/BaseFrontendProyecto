@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IClient } from 'src/app/models/Client.interface';
+import IClient from 'src/app/models/Client.interface';
 import { RequestsControllerService } from 'src/app/services/RequestsController.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class ClientsManagementComponent implements OnInit {
 
   ngOnInit(){
     
-    let client: IClient = {
+/*     let client: IClient = {
       name: "David",
       surname: "Cruz",
       phone: "34324324",
@@ -23,7 +23,7 @@ export class ClientsManagementComponent implements OnInit {
       email: "fdfd@gmail.com",
       address: "dfsdfsdf"
     }
-    // this.setClient(client);
+    this.setClient(client); */
     this.getClients();
   }
 
