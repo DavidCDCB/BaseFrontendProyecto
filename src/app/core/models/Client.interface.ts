@@ -1,4 +1,4 @@
-export default interface Client {
+export default interface IClient {
 	id:      number;
 	name:    string;
 	surname: string;

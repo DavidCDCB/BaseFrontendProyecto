@@ -1,10 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal, { SweetAlertIcon } from 'sweetalert2';
-import ISupplier from 'src/app/models/Supplier.interface';
+import ISupplier from 'src/app/core/models/Supplier.interface';
 import { RequestsControllerService } from 'src/app/services/RequestsController.service';
 import { SupplierFormComponent } from './components/supplier-form/supplier-form.component';
-import { catchError, throwError } from 'rxjs';
 
 @Component({
   selector: 'app-SupplierManagement',
@@ -15,6 +14,7 @@ export class SupplierManagementComponent implements OnInit {
 
   @ViewChild('childForm') childFormComponent!: SupplierFormComponent;
   suppliers: ISupplier[] = [];
+  nameEntity: string = 'Supplier';
 
   constructor(private router: Router, private HTTPClient: RequestsControllerService<ISupplier>) { }
 
@@ -23,7 +23,7 @@ export class SupplierManagementComponent implements OnInit {
   }
 
   getSuppliers(): ISupplier[] {
-    this.HTTPClient.getElement('Supplier').subscribe({
+    this.HTTPClient.getElement(this.nameEntity).subscribe({
       next: (suppliers: ISupplier[]) => {
         this.suppliers = suppliers;
       },
@@ -34,7 +34,7 @@ export class SupplierManagementComponent implements OnInit {
 
   saveSupplier(supplier: ISupplier): void {
     if (!this.childFormComponent.isUpdate) {
-      this.HTTPClient.saveElement('Supplier', supplier).subscribe(
+      this.HTTPClient.saveElement(this.nameEntity, supplier).subscribe(
         (supplier: ISupplier) => {
           console.log(supplier);
           this.showToast('¡Amacenado correctamente!', 'success');
@@ -42,7 +42,7 @@ export class SupplierManagementComponent implements OnInit {
         }
       )
     } else {
-      this.HTTPClient.updateElement('Supplier', supplier, this.childFormComponent.idForUpdate).subscribe(
+      this.HTTPClient.updateElement(this.nameEntity, supplier, this.childFormComponent.idForUpdate).subscribe(
         (supplier: ISupplier) => {
           console.log(supplier);
           this.showToast('¡Actualizado correctamente!', 'info');
@@ -54,7 +54,7 @@ export class SupplierManagementComponent implements OnInit {
 
   deleteSupplier(supplier: ISupplier): void {
     this.showAlert('¿Realmente desea eliminar el registro?', () => {
-      this.HTTPClient.deleteElement('Supplier', supplier.id).subscribe(
+      this.HTTPClient.deleteElement(this.nameEntity, supplier.id).subscribe(
         (supplier: ISupplier) => {
           console.log(supplier);
           this.showToast('¡Eliminado correctamente!', 'warning');
@@ -72,7 +72,7 @@ export class SupplierManagementComponent implements OnInit {
   showToast(text: string, icon: SweetAlertIcon): void {
     Swal.mixin({
       toast: true,
-      position: 'bottom',
+      position: 'top',
       showConfirmButton: false,
       timer: 3000,
     }).fire({

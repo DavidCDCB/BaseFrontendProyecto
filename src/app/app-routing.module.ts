@@ -7,7 +7,6 @@ import { ClientsManagementComponent } from './modules/ClientsManagement/ClientsM
 import { ServicesManagementComponent } from './modules/ServicesManagement/ServicesManagement.component';
 import { ServicesManagementModule } from './modules/ServicesManagement/ServicesManagement.module';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -37,4 +36,5 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

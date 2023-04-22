@@ -12,7 +12,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [SupplierManagementComponent, SupplierFormComponent, SupplierTableComponent],
+  declarations: [
+    SupplierManagementComponent, 
+    SupplierFormComponent, 
+    SupplierTableComponent
+  ],
   providers: [RequestsControllerService],
   exports: [SupplierManagementComponent]
 })

@@ -1,7 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-
 import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
-import ISupplier from 'src/app/models/Supplier.interface';
+import ISupplier from 'src/app/core/models/Supplier.interface';
 
 @Component({
   selector: 'app-supplier-form',

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import ISupplier from 'src/app/models/Supplier.interface';
+import ISupplier from 'src/app/core/models/Supplier.interface';
 
 @Component({
   selector: 'app-supplier-table',
