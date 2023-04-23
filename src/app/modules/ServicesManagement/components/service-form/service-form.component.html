@@ -1,0 +1,102 @@
+<form [formGroup]="serviceForm" (ngSubmit)="saveServiceRequest()" >
+	<div class="row my-2">
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="starDate" name="starDate" type="text" placeholder="Fecha inicio"
+					[className]="checkInput('starDate') ? 'form-control is-invalid' : 'form-control'">
+				<label for="starDate">Fecha inicio</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="endDate" name="endDate" type="text" placeholder="Fecha terminado"
+					[className]="checkInput('endDate') ? 'form-control is-invalid' : 'form-control'">
+				<label for="endDate">Fecha terminado</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row my-2">
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="name" name="name" type="text" placeholder="Nombre del servicio"
+					[className]="checkInput('name') ? 'form-control is-invalid' : 'form-control'">
+				<label for="name">Nombre del servicio</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="state" name="state" type="text" placeholder="Estado de la solicitud"
+					[className]="checkInput('state') ? 'form-control is-invalid' : 'form-control'">
+				<label for="state">Estado de la solicitud</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+	</div>
+
+  <div class="row my-2">
+		<div class="col-4">
+			<div class="form-floating">
+				<input required formControlName="price" name="price" type="number" placeholder="Precio del servicio"
+					[className]="checkInput('price') ? 'form-control is-invalid' : 'form-control'">
+				<label for="price">Precio del servicio</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+		<div class="col-4">
+			<div class="form-floating">
+				<input required formControlName="description" name="description" type="text" placeholder="Descripción del servicio"
+					[className]="checkInput('description') ? 'form-control is-invalid' : 'form-control'">
+				<label for="description">Descripción del servicio</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+		<div class="col-4">
+			<div class="form-floating">
+				<input required formControlName="category" name="category" type="text" placeholder="Categoría del servicio"
+					[className]="checkInput('category') ? 'form-control is-invalid' : 'form-control'">
+				<label for="category">Categoría del servicio</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row my-2">
+		<div *ngIf="(!isView); else clear" class="col mb-2 d-flex justify-content-center">
+			<button [disabled]="!serviceForm.valid"
+				[ngClass]="{
+					'btn-success': isUpdate,
+					'btn-primary': !isUpdate,
+					'btn d-flex align-items-center': true
+				}">
+				{{isUpdate ? 'Actualizar servicio' : 'Registrar servicio'}}
+				<i class="material-icons">save</i>
+			</button>
+		</div>
+
+		<ng-template #clear>
+      <div class="col mb-2 d-flex justify-content-center">
+        <button (click)="clearFields()" class=" btn d-flex align-items-center btn-danger">
+          Cerrar vista
+        </button>
+      </div>
+		</ng-template>
+	</div>
+</form>

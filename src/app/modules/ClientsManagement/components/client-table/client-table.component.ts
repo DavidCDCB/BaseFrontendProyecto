@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import IClient from 'src/app/core/models/Client.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-client-table',
@@ -21,6 +22,12 @@ export class ClientTableComponent {
   onUpdate = new EventEmitter<IClient>();
 
   filter?: string;
+
+  constructor(private router: Router) { }
+
+  redirectToService(idClient: number): void {
+    this.router.navigate([`/services/${idClient}`]);
+  }
 
   setIdClient(client: number): void {
     this.onIdClient.emit(client);

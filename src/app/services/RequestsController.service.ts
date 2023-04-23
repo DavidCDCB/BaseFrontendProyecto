@@ -16,6 +16,10 @@ export class RequestsControllerService<T> {
     return this.http.get<T[]>(this.urApi + endpoint);
   }
 
+  getOneElement(endpoint: string, id: string): Observable<T> {
+    return this.http.get<T>(this.urApi + endpoint + '/' + id);
+  }
+
   saveElement(endpoint: string, element: T): Observable<T> {
     console.table(element);
     return this.http.post<T>(this.urApi + endpoint, element).pipe(

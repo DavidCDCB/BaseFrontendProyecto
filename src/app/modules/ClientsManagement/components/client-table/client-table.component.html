@@ -1,7 +1,5 @@
 <input [(ngModel)]="filter" (input)="filterList" type="text" placeholder="Filtrar..." class="form-control">
 
-
-
 <div class="tabla">
 	<table class="table table-sm table-striped table-hover">
 		<thead class="table-dark header">
@@ -11,7 +9,6 @@
 				<th scope="Origen">Celular</th>
 				<th scope="Origen">Tipo</th>
 				<th scope="Origen">Correo</th>
-				<th scope="Origen">Dirección</th>
 				<th scope="Origen">Opciones</th>
 			</tr>
 		</thead>
@@ -22,7 +19,6 @@
 				<td>{{client.phone}}</td>
 				<td>{{client.type}}</td>
 				<td>{{client.email}}</td>
-        <td>{{client.address}}</td>
 				<td>
 					<div class="d-flex justify-content-around">
 						<button type="button" class="btn btn-warning btn-sm" (click)="sendIdUpdate(client)">
@@ -33,6 +29,9 @@
 						</button>
             <button (click)="setIdClient(client.id)" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#vehicleModal">
               <i class="material-icons">directions_car</i>
+            </button>
+            <button (click)="redirectToService(client.id)" type="button" class="btn btn-secondary">
+              <i class="material-icons">car_crash</i>
             </button>
 					</div>
 				</td>
