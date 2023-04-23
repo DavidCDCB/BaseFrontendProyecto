@@ -1,1 +1,70 @@
-<p>vehicle-form works!</p>
+<form [formGroup]="vehicleForm" (ngSubmit)="saveVehicle()">
+	<div class="row my-2">
+		<div class="col-4">
+			<div class="form-floating">
+				<input required formControlName="plate" name="plate" type="text" placeholder="Plata del vehiculo"
+					[className]="checkInput('plate') ? 'form-control is-invalid' : 'form-control'">
+				<label for="plate">Plata del vehiculo</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+		<div class="col-4">
+			<div class="form-floating">
+				<input required formControlName="year" name="year" type="text" placeholder="Año del vehiculo"
+					[className]="checkInput('year') ? 'form-control is-invalid' : 'form-control'">
+				<label for="year">Año del vehiculo</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+		<div class="col-4">
+			<div class="form-floating">
+				<input required formControlName="color" name="color" type="text" placeholder="Color del vehiculo"
+					[className]="checkInput('color') ? 'form-control is-invalid' : 'form-control'">
+				<label for="color">Color del vehiculo</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row my-2">
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="model" name="model" type="text" placeholder="Marca del vehiculo"
+					[className]="checkInput('model') ? 'form-control is-invalid' : 'form-control'">
+				<label for="model">Marca del vehiculo</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="description" name="description" type="text" placeholder="Descripción del vehiculo"
+					[className]="checkInput('description') ? 'form-control is-invalid' : 'form-control'">
+				<label for="description">Descripción del vehiculo</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row my-2">
+		<div class="col mb-2 d-flex justify-content-center">
+			<button [disabled]="!vehicleForm.valid"
+				[ngClass]="{
+					'btn-success': isUpdate,
+					'btn-primary': !isUpdate,
+					'btn d-flex align-items-center': true
+				}">
+				{{isUpdate ? 'Actualizar vehiculo' : 'Registrar vehiculo'}}
+				<i class="material-icons">save</i>
+			</button>
+		</div>
+	</div>
+</form>

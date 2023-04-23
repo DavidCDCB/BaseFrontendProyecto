@@ -1,4 +1,7 @@
 <input [(ngModel)]="filter" (input)="filterList" type="text" placeholder="Filtrar..." class="form-control">
+
+
+
 <div class="tabla">
 	<table class="table table-sm table-striped table-hover">
 		<thead class="table-dark header">
@@ -28,6 +31,9 @@
 						<button type="button" class="btn btn-danger btn-sm" (click)="sendIdDelete(client)">
 							<i class="material-icons">delete_forever</i>
 						</button>
+            <button (click)="setIdClient(client.id)" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#vehicleModal">
+              <i class="material-icons">directions_car</i>
+            </button>
 					</div>
 				</td>
 			</tr>

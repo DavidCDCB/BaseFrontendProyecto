@@ -11,6 +11,9 @@ export class ClientTableComponent {
   @Input()
   listOfClients?: IClient[] = [];
 
+  @Output() 
+  onIdClient = new EventEmitter<number>();
+
   @Output()
   onDelete = new EventEmitter<IClient>();
 
@@ -18,6 +21,10 @@ export class ClientTableComponent {
   onUpdate = new EventEmitter<IClient>();
 
   filter?: string;
+
+  setIdClient(client: number): void {
+    this.onIdClient.emit(client);
+  }
 
   sendIdDelete(supplier: IClient): void {
     this.onDelete.emit(supplier);

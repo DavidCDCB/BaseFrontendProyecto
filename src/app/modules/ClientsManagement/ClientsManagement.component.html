@@ -7,6 +7,7 @@
   [listOfClients]="clients" 
   (onDelete)="deleteClient($event)"
   (onUpdate)="updateClient($event)" 
+  (onIdClient)="setIdClient($event)"
 />
 
 <ng-template #loading>
@@ -14,4 +15,7 @@
     <div class="spinner-border" role="status"></div>
   </div>
 </ng-template>
-<app-VehicleManagement [idClient]="10"/>
+
+
+
+<app-VehicleManagement [idClient]="idClient"/>

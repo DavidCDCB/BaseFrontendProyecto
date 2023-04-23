@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { RequestsControllerService } from 'src/app/services/RequestsController.service';
 import IClient from 'src/app/core/models/Client.interface';
 import { ClientFormComponent } from './components/client-form/client-form.component';
@@ -11,6 +11,7 @@ import Swal, { SweetAlertIcon } from 'sweetalert2';
 })
 export class ClientsManagementComponent implements OnInit {
 
+  @Input() idClient!: number;
   @ViewChild('childForm') childFormComponent!: ClientFormComponent;
   clients: IClient[] = [];
   nameEntity: string = 'Client';
@@ -19,6 +20,10 @@ export class ClientsManagementComponent implements OnInit {
 
   ngOnInit(){
     this.getClients();
+  }
+
+  setIdClient(idClient: number): void {
+    this.idClient = idClient;
   }
 
   getClients(): IClient[] {

@@ -5,9 +5,9 @@ import IClient from 'src/app/core/models/Client.interface';
 @Component({
   selector: 'app-client-form',
   templateUrl: './client-form.component.html',
-  styleUrls: ['./client-form.component.scss']
+  styleUrls: ['./client-form.component.scss'],
 })
-export class ClientFormComponent {
+export class ClientFormComponent implements OnInit {
 
   @Output()
   onSubmit = new EventEmitter<IClient>();
