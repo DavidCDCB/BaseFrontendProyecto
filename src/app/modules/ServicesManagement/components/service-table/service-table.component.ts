@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IRequest } from 'src/app/core/models/ServiceRequest.interface';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-service-table',
@@ -23,7 +23,11 @@ export class ServiceTableComponent {
 
   filter?: string;
 
-  constructor() { }
+  constructor(private router: Router) { }
+
+  redirectToInconvenient(idRequest: number | undefined): void {
+    this.router.navigate([`/inconvenients/${idRequest}`]);
+  }
 
   sendIdDelete(request: IRequest): void {
     this.onDelete.emit(request);
