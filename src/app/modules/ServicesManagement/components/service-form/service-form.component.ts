@@ -1,6 +1,7 @@
+import { formatDate } from '@angular/common';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
-import { IServiceRequest, IRequest, IService } from 'src/app/core/models/ServiceRequest.interface';
+import { IServiceRequest } from 'src/app/core/models/ServiceRequest.interface';
 
 @Component({
   selector: 'app-service-form',
@@ -26,14 +27,18 @@ export class ServiceFormComponent implements OnInit {
 
   initForm(): void {
     this.serviceForm = this.formBuilder.group({
-      starDate: ['22/03/2023', [Validators.required]],
-      endDate: ['12/03/2023', [Validators.required]],
+      starDate: [formatDate(this.changeDateFormat('22/03/2023'), 'yyyy-MM-dd', 'en'), [Validators.required]],
+      endDate: [formatDate(this.changeDateFormat('22/04/2023'), 'yyyy-MM-dd', 'en'), [Validators.required]],
       name: ['asd', [Validators.required]],
       state: ['Finalizado', [Validators.required]],
       price: [213213, [Validators.required]],
       description: ['asd', [Validators.required]],
       category: ['asd', [Validators.required]],
     })
+  }
+
+  changeDateFormat(date: string): string {
+    return date.split('/').reverse().join('-');
   }
 
   saveServiceRequest(): void {
@@ -47,9 +52,10 @@ export class ServiceFormComponent implements OnInit {
   }
 
   changeFields(element: IServiceRequest): void {
-    console.log(element);
     if (element) {
       this.serviceForm.patchValue(element);
+      this.serviceForm.get('starDate')?.setValue(formatDate(this.changeDateFormat(element.starDate), 'yyyy-MM-dd', 'en'));
+      this.serviceForm.get('endDate')?.setValue(formatDate(this.changeDateFormat(element.endDate), 'yyyy-MM-dd', 'en'));
     }
   }
 

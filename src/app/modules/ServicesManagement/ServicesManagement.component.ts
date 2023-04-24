@@ -2,8 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IServiceRequest, IRequest, IService } from 'src/app/core/models/ServiceRequest.interface';
 import { RequestsControllerService } from 'src/app/services/RequestsController.service';
-import Swal, { SweetAlertIcon } from 'sweetalert2';
 import { ServiceFormComponent } from './components/service-form/service-form.component';
+import Swal, { SweetAlertIcon } from 'sweetalert2';
 
 @Component({
   selector: 'app-ServicesManagement',
@@ -58,13 +58,12 @@ export class ServicesManagementComponent implements OnInit {
         category: serviceRequest.category,
       },
       {
-        starDate: serviceRequest.starDate,
-        endDate: serviceRequest.endDate,
+        starDate: this.changeDateFormat(serviceRequest.starDate),
+        endDate: this.changeDateFormat(serviceRequest.endDate),
         state: serviceRequest.state,
         clientId: parseInt(this.idClient),
         serviceId: 0
       }
-
     );
   }
 
@@ -158,6 +157,10 @@ export class ServicesManagementComponent implements OnInit {
         error: (error) => this.showToast('Error al eliminar el registro', 'error')
       });
     });
+  }
+  
+  changeDateFormat(date: string): string{
+    return date.split('-').reverse().join('/');
   }
 
   showToast(text: string, icon: SweetAlertIcon): void {

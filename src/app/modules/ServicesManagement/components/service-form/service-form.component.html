@@ -2,7 +2,7 @@
 	<div class="row my-2">
 		<div class="col-6">
 			<div class="form-floating">
-				<input required formControlName="starDate" name="starDate" type="text" placeholder="Fecha inicio"
+				<input required formControlName="starDate" name="starDate" type="date" placeholder="Fecha inicio"
 					[className]="checkInput('starDate') ? 'form-control is-invalid' : 'form-control'">
 				<label for="starDate">Fecha inicio</label>
 				<div class="invalid-feedback">
@@ -12,7 +12,7 @@
 		</div>
 		<div class="col-6">
 			<div class="form-floating">
-				<input required formControlName="endDate" name="endDate" type="text" placeholder="Fecha terminado"
+				<input required formControlName="endDate" name="endDate" type="date" placeholder="Fecha terminado"
 					[className]="checkInput('endDate') ? 'form-control is-invalid' : 'form-control'">
 				<label for="endDate">Fecha terminado</label>
 				<div class="invalid-feedback">
@@ -94,7 +94,7 @@
 		<ng-template #clear>
       <div class="col mb-2 d-flex justify-content-center">
         <button (click)="clearFields()" class=" btn d-flex align-items-center btn-danger">
-          Cerrar vista
+          Cerrar vista <i class="material-icons">close</i>
         </button>
       </div>
 		</ng-template>
