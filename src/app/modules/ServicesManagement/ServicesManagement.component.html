@@ -3,15 +3,9 @@
 </div>
 
 <app-service-form #childForm (onSubmit)="saveServiceRequest($event)"/>
-<app-service-table *ngIf="requests.length > 0; else loading" 
+<app-service-table
   [listOfRequest]="requests" 
   (onDelete)="deleteRequest($event)"
   (onUpdate)="updateRequestService($event)"
   (onView)="viewRequestService($event)"
 />
-
-<ng-template #loading>
-  <div class="d-flex justify-content-center">
-    <div class="spinner-border" role="status"></div>
-  </div>
-</ng-template>
