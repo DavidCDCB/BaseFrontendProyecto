@@ -8,11 +8,11 @@ import { ServicesManagementComponent } from './modules/ServicesManagement/Servic
 import { ServicesManagementModule } from './modules/ServicesManagement/ServicesManagement.module';
 
 const routes: Routes = [
-  {
+/*   {
     path: '',
     pathMatch: 'full',
     redirectTo: 'suppliers',
-  },
+  }, */
   {
     path: 'suppliers',
     component: SupplierManagementComponent,
@@ -24,6 +24,10 @@ const routes: Routes = [
   {
     path: 'services/:id',
     component: ServicesManagementComponent,
+  },
+  {
+    path: '**',
+    redirectTo: '',
   }
 ];
 

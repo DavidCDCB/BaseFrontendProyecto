@@ -27,8 +27,8 @@ export class ServiceFormComponent implements OnInit {
 
   initForm(): void {
     this.serviceForm = this.formBuilder.group({
-      starDate: [formatDate(this.changeDateFormat('22/03/2023'), 'yyyy-MM-dd', 'en'), [Validators.required]],
-      endDate: [formatDate(this.changeDateFormat('22/04/2023'), 'yyyy-MM-dd', 'en'), [Validators.required]],
+      starDate: [this.changeDateFormat('22/03/2023'), [Validators.required]],
+      endDate: [this.changeDateFormat('22/03/2023'), [Validators.required]],
       name: ['asd', [Validators.required]],
       state: ['Finalizado', [Validators.required]],
       price: [213213, [Validators.required]],
@@ -54,8 +54,8 @@ export class ServiceFormComponent implements OnInit {
   changeFields(element: IServiceRequest): void {
     if (element) {
       this.serviceForm.patchValue(element);
-      this.serviceForm.get('starDate')?.setValue(formatDate(this.changeDateFormat(element.starDate), 'yyyy-MM-dd', 'en'));
-      this.serviceForm.get('endDate')?.setValue(formatDate(this.changeDateFormat(element.endDate), 'yyyy-MM-dd', 'en'));
+      this.serviceForm.get('starDate')?.setValue(this.changeDateFormat(element.starDate));
+      this.serviceForm.get('endDate')?.setValue(this.changeDateFormat(element.endDate));
     }
   }
 

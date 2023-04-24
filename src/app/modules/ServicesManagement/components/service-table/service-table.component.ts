@@ -25,8 +25,12 @@ export class ServiceTableComponent {
 
   constructor(private router: Router) { }
 
-  redirectToInconvenient(idRequest: number | undefined): void {
+  redirectToInconvenients(idRequest: number | undefined): void {
     this.router.navigate([`/inconvenients/${idRequest}`]);
+  }
+
+  redirectToProducts(idRequest: number | undefined): void {
+    this.router.navigate([`/products/${idRequest}`]);
   }
 
   sendIdDelete(request: IRequest): void {

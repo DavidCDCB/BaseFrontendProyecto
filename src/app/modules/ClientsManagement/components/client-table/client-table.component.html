@@ -21,16 +21,24 @@
         <td>{{client.email}}</td>
         <td>
           <div class="d-flex justify-content-around">
-            <button type="button" class="btn btn-warning btn-sm" (click)="sendIdUpdate(client)">
+            <button type="button" class="btn btn-warning btn-sm"
+              data-bs-toggle="tooltip" data-bs-placement="top" title="Editar Cliente"
+              (click)="sendIdUpdate(client)">
               <i class="material-icons">edit_note</i>
             </button>
-            <button type="button" class="btn btn-danger btn-sm" (click)="sendIdDelete(client)">
+            <button type="button" class="btn btn-danger btn-sm" 
+              data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar Cliente"
+              (click)="sendIdDelete(client)">
               <i class="material-icons">delete_forever</i>
             </button>
-            <button (click)="setIdClient(client.id)" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#vehicleModal">
+            <button (click)="setIdClient(client.id)" type="button"
+              data-bs-toggle="tooltip" data-bs-placement="top" title="Gestionar Vehículos"
+              class="btn btn-info" data-bs-toggle="modal" data-bs-target="#vehicleModal">
               <i class="material-icons">directions_car</i>
             </button>
-            <button (click)="redirectToService(client.id)" type="button" class="btn btn-secondary">
+            <button (click)="redirectToService(client.id)" type="button" 
+              data-bs-toggle="tooltip" data-bs-placement="top" title="Gestionar Servicios"  
+              class="btn btn-secondary">
               <i class="material-icons">car_crash</i>
             </button>
           </div>
