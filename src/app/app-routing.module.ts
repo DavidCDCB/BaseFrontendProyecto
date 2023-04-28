@@ -6,6 +6,8 @@ import { ClientsManagementModule } from './modules/ClientsManagement/ClientsMana
 import { ClientsManagementComponent } from './modules/ClientsManagement/ClientsManagement.component';
 import { ServicesManagementComponent } from './modules/ServicesManagement/ServicesManagement.component';
 import { ServicesManagementModule } from './modules/ServicesManagement/ServicesManagement.module';
+import { MechanicsManagementModule } from './modules/mechanics-management/mechanics-management.module';
+import { MechanicsManagementComponent } from './modules/mechanics-management/mechanics-management.component';
 
 const routes: Routes = [
 /*   {
@@ -26,6 +28,10 @@ const routes: Routes = [
     component: ServicesManagementComponent,
   },
   {
+    path: 'mechanics',
+    component: MechanicsManagementComponent,
+  },
+  {
     path: '**',
     redirectTo: '',
   }
@@ -33,10 +39,11 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes), 
+    RouterModule.forRoot(routes),
     SupplierManagementModule,
     ClientsManagementModule,
-    ServicesManagementModule
+    ServicesManagementModule,
+    MechanicsManagementModule
   ],
   exports: [RouterModule]
 })

@@ -6,7 +6,7 @@ export interface IMechanic{
   role: string;
   email:string;
   address: string;
-  commission: string;
-  salary: string;
+  commission: number;
+  salary: number;
   userId: number;
 }
