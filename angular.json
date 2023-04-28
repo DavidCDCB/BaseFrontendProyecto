@@ -31,6 +31,7 @@
             ],
             "styles": [
               "bootswatch/dist/darkly/bootstrap.min.css",
+              "material-design-icons-iconfont/dist/material-design-icons.min.css",
               "src/sass/styles.scss"
             ],
             "stylePreprocessorOptions": {
@@ -40,6 +41,9 @@
             },
             "scripts": [
               "bootstrap/dist/js/bootstrap.min.js"
+            ],
+            "allowedCommonJsDependencies": [
+              "sweetalert2"
             ]
           },
           "configurations": {

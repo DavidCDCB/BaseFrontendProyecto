@@ -1,0 +1,37 @@
+<nav class="navbar  navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="../assets/logo.png" alt="" width="40" height="40" class="d-inline-block align-text-top">
+      Autotronix System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <section id="navbarSupportedContent" class="offcanvas offcanvas-start bg-dark" tabindex="-1">
+      <div class="offcanvas-header" data-bs-theme="dark">
+        <h5 class="offcanvas-title text-white">Autotronix System</h5>
+        <button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="offcanvas"></button>
+      </div>
+
+      <div class="offcanvas-body d-flex flex-column justify-content-between px-0">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="suppliers"> Proveedores </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="clients"> Clientes </a>
+          </li>
+          <li class="nav-item">
+            <a ngClass="nav-link" routerLink="services/0"> Servicios </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+
+      </div>
+    </section>
+
+  </div>
+</nav>

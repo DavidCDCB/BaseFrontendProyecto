@@ -1,3 +1,19 @@
-<p>
-  ClientsManagement works!
-</p>
+<div class="d-flex justify-content-center">
+	<h3 class="text-white">Gestión de clientes</h3>
+</div>
+
+<app-client-form #childForm (onSubmit)="saveClient($event)" />
+<app-client-table *ngIf="clients.length > 0; else loading" 
+  [listOfClients]="clients" 
+  (onDelete)="deleteClient($event)"
+  (onUpdate)="updateClient($event)" 
+  (onIdClient)="setIdClient($event)"
+/>
+
+<ng-template #loading>
+  <div class="d-flex justify-content-center">
+    <div class="spinner-border" role="status"></div>
+  </div>
+</ng-template>
+
+<app-VehicleManagement [idClient]="idClient"/>

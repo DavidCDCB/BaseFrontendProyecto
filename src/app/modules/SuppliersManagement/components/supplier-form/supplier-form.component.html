@@ -1,0 +1,95 @@
+<form [formGroup]="supplierForm" (ngSubmit)="saveSupplier()" >
+	<div class="row my-2">
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="company" name="company" type="text" placeholder="Nombre de la empresa"
+					[className]="checkInput('company') ? 'form-control is-invalid' : 'form-control'">
+				<label for="company">Nombre de la empresa</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="nit" name="nit" type="text" placeholder="NIT de la empresa"
+					[className]="checkInput('nit') ? 'form-control is-invalid' : 'form-control'">
+				<label for="company">NIT de la empresa</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row my-2">
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="name" name="name" type="text" placeholder="Nombre del encargado"
+					[className]="checkInput('name') ? 'form-control is-invalid' : 'form-control'">
+				<label for="name">Nombre del encargado</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="surName" name="surName" type="text" placeholder="Apellido del encargado"
+					[className]="checkInput('surName') ? 'form-control is-invalid' : 'form-control'">
+				<label for="surName">Apellido del encargado</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row my-2">
+		<div class="col-4">
+			<div class="form-floating">
+				<input required formControlName="phone" name="phone" type="text" placeholder="Celular del encargado"
+					[className]="checkInput('phone') ? 'form-control is-invalid' : 'form-control'">
+				<label for="phone">Celular del encargado</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+		<div class="col-4">
+			<div class="form-floating">
+				<input required formControlName="email" name="email" type="text" placeholder="Correo del encargado"
+					[className]="checkInput('email') ? 'form-control is-invalid' : 'form-control'">
+				<label for="email">Correo del encargado</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+		<div class="col-4">
+			<div class="form-floating">
+				<input required formControlName="address" name="address" type="text" placeholder="Dirección del encargado"
+					[className]="checkInput('address') ? 'form-control is-invalid' : 'form-control'">
+				<label for="address">Dirección del encargado</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row my-2">
+		<div class="col mb-2 d-flex justify-content-center">
+			<button [disabled]="!supplierForm.valid"
+				[ngClass]="{
+					'btn-success': isUpdate,
+					'btn-primary': !isUpdate,
+					'btn d-flex align-items-center': true
+				}">
+				{{isUpdate ? 'Actualizar proveedor' : 'Registrar proveedor'}}
+				<i class="material-icons">save</i>
+			</button>
+		</div>
+	</div>
+
+</form>

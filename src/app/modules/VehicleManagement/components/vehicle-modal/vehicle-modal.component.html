@@ -1,0 +1,18 @@
+<div class="modal fade" id="vehicleModal" tabindex="-1" aria-labelledby="vehicleModal" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="vehicleModalLabel">Gestión de vehiculos para el cliente {{idClient}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-vehicle-form #childForm (onSubmit)="saveVehicle($event)" />
+        <app-vehicle-table 
+          [listOfVehicles]="vehicles" 
+          (onDelete)="deleteVehicle($event)"
+          (onUpdate)="updateVehicle($event)"
+        />
+      </div>
+    </div>
+  </div>
+</div>

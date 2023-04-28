@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './Navbar/Navbar.component';
+import { SidebarComponent } from './Sidebar/Sidebar.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 
 @NgModule({
@@ -8,7 +9,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
     CommonModule,
     AppRoutingModule
   ],
-  declarations: [NavbarComponent],
-  exports: [NavbarComponent]
+  declarations: [NavbarComponent, SidebarComponent],
+  exports: [NavbarComponent, SidebarComponent]
 })
 export class LayoutModule { }

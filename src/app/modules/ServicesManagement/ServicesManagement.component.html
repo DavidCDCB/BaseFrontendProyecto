@@ -1,3 +1,11 @@
-<p>
-  ServicesManagement works!
-</p>
+<div class="d-flex justify-content-center">
+	<h3 class="text-white">Gestión de Servicios</h3>
+</div>
+
+<app-service-form #childForm (onSubmit)="saveServiceRequest($event)"/>
+<app-service-table
+  [listOfRequest]="requests" 
+  (onDelete)="deleteRequest($event)"
+  (onUpdate)="updateRequestService($event)"
+  (onView)="viewRequestService($event)"
+/>

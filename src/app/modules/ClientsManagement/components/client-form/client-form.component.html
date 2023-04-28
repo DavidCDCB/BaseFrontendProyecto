@@ -1,0 +1,85 @@
+<form [formGroup]="clientForm" (ngSubmit)="saveClient()" >
+	<div class="row my-2">
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="name" name="name" type="text" placeholder="Nombre del cliente"
+					[className]="checkInput('name') ? 'form-control is-invalid' : 'form-control'">
+				<label for="name">Nombre del cliente</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="surname" name="surname" type="text" placeholder="Apellido del cliente"
+					[className]="checkInput('surname') ? 'form-control is-invalid' : 'form-control'">
+				<label for="surname">Apellido del cliente</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row my-2">
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="phone" name="phone" type="text" placeholder="Celular del cliente"
+					[className]="checkInput('phone') ? 'form-control is-invalid' : 'form-control'">
+				<label for="phone">Celular del cliente</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="type" name="type" type="text" placeholder="Tipo de cliente"
+					[className]="checkInput('type') ? 'form-control is-invalid' : 'form-control'">
+				<label for="type">Tipo de cliente</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row my-2">
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="email" name="email" type="text" placeholder="Correo del cliente"
+					[className]="checkInput('email') ? 'form-control is-invalid' : 'form-control'">
+				<label for="email">Correo del cliente"</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="address" name="address" type="text" placeholder="Dirección cliente"
+					[className]="checkInput('address') ? 'form-control is-invalid' : 'form-control'">
+				<label for="address">Dirección cliente</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row my-2">
+		<div class="col mb-2 d-flex justify-content-center">
+			<button [disabled]="!clientForm.valid"
+				[ngClass]="{
+					'btn-success': isUpdate,
+					'btn-primary': !isUpdate,
+					'btn d-flex align-items-center': true
+				}">
+				{{isUpdate ? 'Actualizar cliente' : 'Registrar cliente'}}
+				<i class="material-icons">save</i>
+			</button>
+		</div>
+	</div>
+
+</form>

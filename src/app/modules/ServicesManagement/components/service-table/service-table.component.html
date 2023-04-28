@@ -1,0 +1,52 @@
+<input [(ngModel)]="filter" (input)="filterList" type="text" placeholder="Filtrar..." class="form-control">
+
+<div class="tabla">
+	<table class="table table-sm table-striped table-hover">
+		<thead class="table-dark header">
+			<tr>
+				<th scope="Origen">Inicio</th>
+				<th scope="Origen">Final</th>
+				<th scope="Origen">Estado</th>
+        <th scope="Origen">Servicio</th>
+				<th scope="Origen">Opciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let serviceRequest of filterList(); let i = index">
+				<td>{{serviceRequest.starDate}}</td>
+				<td>{{serviceRequest.endDate}}</td>
+        <td>{{serviceRequest.state}}</td>
+        <td>{{serviceRequest.serviceId}}</td>
+				<td>
+					<div class="d-flex justify-content-around">
+						<button type="button" class="btn btn-info btn-sm" 
+							data-bs-toggle="tooltip" data-bs-placement="top" title="Ver Solicitud"
+							(click)="sendIdView(serviceRequest)">
+							<i class="material-icons">preview</i>
+						</button>
+						<button type="button" class="btn btn-warning btn-sm"
+							data-bs-toggle="tooltip" data-bs-placement="top" title="Editar Solicitud"
+							(click)="sendIdUpdate(serviceRequest)">
+							<i class="material-icons">edit_note</i>
+						</button>
+						<button type="button" class="btn btn-danger btn-sm"
+							data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar Solicitud"
+							(click)="sendIdDelete(serviceRequest)">
+							<i class="material-icons">delete_forever</i>
+						</button>
+						<button type="button" class="btn btn-success btn-sm"
+							data-bs-toggle="tooltip" data-bs-placement="top" title="Gestionar Productos"
+							(click)="redirectToProducts(serviceRequest.id)">
+							<i class="material-icons">electric_car</i>
+						</button>
+						<button type="button" class="btn btn-secondary btn-sm"
+							data-bs-toggle="tooltip" data-bs-placement="top" title="Gestionar Inconvenientes"
+							(click)="redirectToInconvenients(serviceRequest.id)">
+							<i class="material-icons">warning</i>
+						</button>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
