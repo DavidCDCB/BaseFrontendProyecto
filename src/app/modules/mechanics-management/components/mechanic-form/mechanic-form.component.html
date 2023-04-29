@@ -69,6 +69,30 @@
 	</div>
 
 <!-- TODO: falta los campos commision, address and userId -->
+<div class="row my-2">
+  <div class="col-6">
+    <div class="form-floating">
+      <input required formControlName="commission" name="commission" type="number" placeholder="Comision del mecanico"
+        [className]="checkInput('commission') ? 'form-control is-invalid' : 'form-control'">
+      <label for="commission">Comision del mecanico</label>
+      <div class="invalid-feedback">
+        Este campo es requerido
+      </div>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="form-floating">
+      <input required formControlName="salary" name="salary" type="number" placeholder="Salario del mecanico"
+        [className]="checkInput('salary') ? 'form-control is-invalid' : 'form-control'">
+      <label for="salary">Salario del mecanico</label>
+      <div class="invalid-feedback">
+        Este campo es requerido
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 	<div class="row my-2">
 		<div class="col mb-2 d-flex justify-content-center">

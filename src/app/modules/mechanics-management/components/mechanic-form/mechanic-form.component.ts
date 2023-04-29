@@ -24,12 +24,14 @@ export class MechanicFormComponent implements OnInit{
 
   initForm(): void {
     this.mechanicForm = this.formBuilder.group({
-      name: ['asdf', [Validators.required]],
-      surname: ['213', [Validators.required]],
-      phone: ['asd', [Validators.required]],
-      email: ['3432', [Validators.required]],
-      role: ['sddas', [Validators.required]],
-      address: ['asd', [Validators.required]],
+      name: ['Carlos', [Validators.required]],
+      surname: ['Luna', [Validators.required]],
+      phone: ['321458', [Validators.required]],
+      email: ['mecanico@gmail.com', [Validators.required]],
+      role: ['Master', [Validators.required]],
+      address: ['Cra 30b #65', [Validators.required]],
+      commission: [1234, [Validators.required]],
+      salary: [1234, [Validators.required]]
     })
   }
 

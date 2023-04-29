@@ -8,5 +8,5 @@ export interface IMechanic{
   address: string;
   commission: number;
   salary: number;
-  userId: number;
+  // userId: number;
 }
