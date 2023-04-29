@@ -8,6 +8,8 @@ import { ServicesManagementComponent } from './modules/ServicesManagement/Servic
 import { ServicesManagementModule } from './modules/ServicesManagement/ServicesManagement.module';
 import { MechanicsManagementModule } from './modules/mechanics-management/mechanics-management.module';
 import { MechanicsManagementComponent } from './modules/mechanics-management/mechanics-management.component';
+import { PayrollsManagementComponent } from './modules/payrolls-management/payrolls-management.component';
+import { PayrollsManagementModule } from './modules/payrolls-management/payrolls-management.module';
 
 const routes: Routes = [
 /*   {
@@ -32,6 +34,10 @@ const routes: Routes = [
     component: MechanicsManagementComponent,
   },
   {
+    path: 'payrolls',
+    component: PayrollsManagementComponent,
+  },
+  {
     path: '**',
     redirectTo: '',
   }
@@ -43,7 +49,9 @@ const routes: Routes = [
     SupplierManagementModule,
     ClientsManagementModule,
     ServicesManagementModule,
-    MechanicsManagementModule
+    MechanicsManagementModule,
+    PayrollsManagementModule
+
   ],
   exports: [RouterModule]
 })
