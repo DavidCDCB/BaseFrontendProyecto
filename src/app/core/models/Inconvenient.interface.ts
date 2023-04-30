@@ -6,5 +6,5 @@ export interface IInconvenient{
   serviceRequestId: number;
   seen: number;
   description: string;
-  requestId: string;
+  requestId: number;
 }
