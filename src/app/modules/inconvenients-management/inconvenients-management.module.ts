@@ -19,6 +19,7 @@ import { InconvenientTableComponent } from './components/inconvenient-table/inco
     CommonModule,
     FormsModule,
     ReactiveFormsModule
-  ]
+  ],
+  exports: [InconvenientsManagementComponent]
 })
 export class InconvenientsManagementModule { }

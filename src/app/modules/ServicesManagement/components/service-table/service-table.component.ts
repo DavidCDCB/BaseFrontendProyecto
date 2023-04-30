@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IRequest } from 'src/app/core/models/ServiceRequest.interface';
 import { Router } from '@angular/router';
+import { IInconvenient } from 'src/app/core/models/Inconvenient.interface';
 
 @Component({
   selector: 'app-service-table',
@@ -21,12 +22,16 @@ export class ServiceTableComponent {
   @Output()
   onView = new EventEmitter<IRequest>();
 
+  @Output()
+  onIdInconvenient = new EventEmitter<number>();
+
   filter?: string;
 
   constructor(private router: Router) { }
 
   redirectToInconvenients(idRequest: number | undefined): void {
-    this.router.navigate([`/inconvenients/${idRequest}`]);
+    // this.router.navigate([`/inconvenients/${idRequest}`]);
+    this.onIdInconvenient.emit(idRequest);
   }
 
   redirectToProducts(idRequest: number | undefined): void {
@@ -47,8 +52,9 @@ export class ServiceTableComponent {
 
   filterList(): IRequest[] | undefined {
     return (this.filter) ? this.listOfRequest?.filter(client => {
-      return Object.values(client).join('').toLowerCase().includes(this.filter!.toLowerCase()); 
+      return Object.values(client).join('').toLowerCase().includes(this.filter!.toLowerCase());
     }).reverse() : this.listOfRequest!.reverse();
   }
+
 
 }

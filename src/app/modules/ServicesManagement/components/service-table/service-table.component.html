@@ -19,7 +19,7 @@
         <td>{{serviceRequest.serviceId}}</td>
 				<td>
 					<div class="d-flex justify-content-around">
-						<button type="button" class="btn btn-info btn-sm" 
+						<button type="button" class="btn btn-info btn-sm"
 							data-bs-toggle="tooltip" data-bs-placement="top" title="Ver Solicitud"
 							(click)="sendIdView(serviceRequest)">
 							<i class="material-icons">preview</i>
@@ -39,9 +39,9 @@
 							(click)="redirectToProducts(serviceRequest.id)">
 							<i class="material-icons">electric_car</i>
 						</button>
-						<button type="button" class="btn btn-secondary btn-sm"
+						<button  type="button" class="btn btn-secondary btn-sm"
 							data-bs-toggle="tooltip" data-bs-placement="top" title="Gestionar Inconvenientes"
-							(click)="redirectToInconvenients(serviceRequest.id)">
+							(click)="redirectToInconvenients(serviceRequest.id)" data-bs-toggle="modal" data-bs-target="#inconvenientModal">
 							<i class="material-icons">warning</i>
 						</button>
 					</div>

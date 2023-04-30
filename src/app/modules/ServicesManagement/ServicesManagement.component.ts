@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild,Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IServiceRequest, IRequest, IService } from 'src/app/core/models/ServiceRequest.interface';
 import { RequestsControllerService } from 'src/app/services/RequestsController.service';
 import { ServiceFormComponent } from './components/service-form/service-form.component';
 import Swal, { SweetAlertIcon } from 'sweetalert2';
+import { IInconvenient } from 'src/app/core/models/Inconvenient.interface';
 
 @Component({
   selector: 'app-ServicesManagement',
@@ -12,11 +13,14 @@ import Swal, { SweetAlertIcon } from 'sweetalert2';
 })
 export class ServicesManagementComponent implements OnInit {
   idClient!: string;
+  @Input() requestId!: number;
   @ViewChild('childForm') childFormComponent!: ServiceFormComponent;
   nameEntityRequest: string = 'Request';
   nameEntityService: string = 'Service';
   requests: IRequest[] = [];
   service?: IService;
+  // inconvenients: IInconvenient[] = [];
+
 
   constructor(
     private route: ActivatedRoute,
@@ -158,7 +162,7 @@ export class ServicesManagementComponent implements OnInit {
       });
     });
   }
-  
+
   changeDateFormat(date: string): string{
     return date.split('-').reverse().join('/');
   }

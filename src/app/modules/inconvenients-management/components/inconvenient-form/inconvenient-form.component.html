@@ -1,6 +1,6 @@
 <form [formGroup]="inconvenientForm" (ngSubmit)="saveInconvenient()">
 	<div class="row my-2">
-		<div class="col-4">
+		<div class="col-6">
 			<div class="form-floating">
 				<input required formControlName="dateAct" name="dateAct" type="text" placeholder="Fecha del inconveniente"
 					[className]="checkInput('dateAct') ? 'form-control is-invalid' : 'form-control'">
@@ -10,17 +10,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-4">
-			<div class="form-floating">
-				<input required formControlName="state" name="state" type="text" placeholder="Estado del inconveniente"
-					[className]="checkInput('state') ? 'form-control is-invalid' : 'form-control'">
-				<label for="state">Estado del retraso</label>
-				<div class="invalid-feedback">
-					Este campo es requerido
-				</div>
-			</div>
-		</div>
-		<div class="col-4">
+		<div class="col-6">
 			<div class="form-floating">
 				<input required formControlName="daysDelay" name="daysDelay" type="number" placeholder="Dias de inconveniente"
 					[className]="checkInput('daysDelay') ? 'form-control is-invalid' : 'form-control'">

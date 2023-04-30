@@ -4,12 +4,14 @@ import { ServicesManagementComponent } from './ServicesManagement.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ServiceTableComponent } from './components/service-table/service-table.component';
 import { ServiceFormComponent } from './components/service-form/service-form.component';
+import { InconvenientsManagementModule } from '../inconvenients-management/inconvenients-management.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    InconvenientsManagementModule
   ],
   declarations: [ServicesManagementComponent, ServiceTableComponent, ServiceFormComponent],
   exports: [ServicesManagementComponent]
