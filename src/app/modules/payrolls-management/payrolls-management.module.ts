@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PayrollsManagementComponent } from './payrolls-management.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -9,7 +10,9 @@ import { PayrollsManagementComponent } from './payrolls-management.component';
     PayrollsManagementComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class PayrollsManagementModule { }
