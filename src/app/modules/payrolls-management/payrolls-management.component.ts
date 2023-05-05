@@ -2,6 +2,7 @@ import { Component, Input, ViewChild } from '@angular/core';
 import { IPayroll } from 'src/app/core/models/Payroll.interface';
 import { RequestsControllerService } from 'src/app/services/RequestsController.service';
 import Swal,{ SweetAlertIcon } from 'sweetalert2';
+import { PayrollFormComponent } from './components/payroll-form/payroll-form.component';
 
 @Component({
   selector: 'app-payrolls-management',
