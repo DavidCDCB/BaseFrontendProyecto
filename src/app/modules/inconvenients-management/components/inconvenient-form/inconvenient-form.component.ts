@@ -23,13 +23,17 @@ export class InconvenientFormComponent implements OnInit{
 
   initForm(): void {
     this.inconvenientForm = this.formBuilder.group({
-      dateAct: ['sd', [Validators.required]],
-      daysDelay: [5666, [Validators.required]],
-      seen: [123, [Validators.required]],
+      dateAct: [this.changeDateFormat('22/03/2023'), [Validators.required]],
+      state: ['sdasd', [Validators.required]],
+      daysDelay: [3, [Validators.required]],
+      serviceRequestId: [10, [Validators.required]],
+      seen: [10, [Validators.required]],
       description: ['sdasd', [Validators.required]],
     })
   }
-
+  changeDateFormat(date: string): string {
+    return date.split('/').reverse().join('-');
+  }
   saveInconvenient(): void {
     this.onSubmit.emit(this.inconvenientForm.value);
     this.inconvenientForm.reset();
