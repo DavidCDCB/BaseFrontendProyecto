@@ -10,6 +10,9 @@ import { MechanicsManagementModule } from './modules/mechanics-management/mechan
 import { MechanicsManagementComponent } from './modules/mechanics-management/mechanics-management.component';
 import { PayrollsManagementComponent } from './modules/payrolls-management/payrolls-management.component';
 import { PayrollsManagementModule } from './modules/payrolls-management/payrolls-management.module';
+import { UsersManagementModule } from './modules/UsersManagement/UsersManagement.module';
+import { UsersManagementComponent } from './modules/UsersManagement/UsersManagement.component';
+import { LoginFormComponent } from './modules/LoginManagement/LoginManagement.component';
 
 const routes: Routes = [
 /*   {
@@ -18,12 +21,20 @@ const routes: Routes = [
     redirectTo: 'suppliers',
   }, */
   {
+    path: 'login',
+    component: LoginFormComponent,
+  },
+  {
     path: 'suppliers',
     component: SupplierManagementComponent,
   },
   {
     path: 'clients',
     component: ClientsManagementComponent,
+  },
+  {
+    path: 'users',
+    component: UsersManagementComponent,
   },
   {
     path: 'services/:id',
@@ -50,8 +61,8 @@ const routes: Routes = [
     ClientsManagementModule,
     ServicesManagementModule,
     MechanicsManagementModule,
-    PayrollsManagementModule
-
+    PayrollsManagementModule,
+    UsersManagementModule
   ],
   exports: [RouterModule]
 })

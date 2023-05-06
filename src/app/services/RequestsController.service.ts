@@ -49,6 +49,16 @@ export class RequestsControllerService<T> {
     )
   }
 
+  //POST -> https://localhost:7204/api/User/login  Retorna -> Token
+  authenticateElement(endpoint: string, element: T): Observable<T> {
+    return this.http.post<T>(this.urApi + endpoint + '/login' , element).pipe(
+      catchError((error: HttpErrorResponse): Observable<any> => {
+        console.error('There was an error!', error);
+        return throwError(() => new Error(this.getServerErrorMessage(error)));
+      })
+    )
+  }
+
   private getServerErrorMessage(error: HttpErrorResponse): string {
     switch (error.status) {
       case 404: {

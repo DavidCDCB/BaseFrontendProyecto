@@ -1,0 +1,51 @@
+<form [formGroup]="userForm" (ngSubmit)="saveUser()" >
+	<div class="row my-2">
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="email" name="email" type="text" placeholder="Correo del usuario"
+					[className]="checkInput('email') ? 'form-control is-invalid' : 'form-control'">
+				<label for="email">Correo del usuario</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="password" name="password" type="text" placeholder="Contraseña del usuario"
+					[className]="checkInput('password') ? 'form-control is-invalid' : 'form-control'">
+				<label for="password">Contraseña del usuario</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row my-2">
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="role" name="role" type="text" placeholder="Rol del usuario"
+					[className]="checkInput('role') ? 'form-control is-invalid' : 'form-control'">
+				<label for="role">Rol del usuario</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+  </div>
+	<div class="row my-2">
+		<div class="col mb-2 d-flex justify-content-center">
+			<button [disabled]="!userForm.valid"
+				[ngClass]="{
+					'btn-success': isUpdate,
+					'btn-primary': !isUpdate,
+					'btn d-flex align-items-center': true
+				}">
+				{{isUpdate ? 'Actualizar usuario' : 'Registrar usuario'}}
+				<i class="material-icons">save</i>
+			</button>
+		</div>
+	</div>
+
+</form>
