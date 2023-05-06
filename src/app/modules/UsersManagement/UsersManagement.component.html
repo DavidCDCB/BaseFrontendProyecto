@@ -1,0 +1,18 @@
+<div class="d-flex justify-content-center">
+	<h3 class="text-white">Gestión de usuarios</h3>
+</div>
+
+<app-user-form #childForm (onSubmit)="saveUser($event)" />
+<app-user-table *ngIf="users.length > 0; else loading"
+  [listOfUsers]="users"
+  (onDelete)="deleteUser($event)"
+  (onUpdate)="updateUser($event)"
+/>
+
+<ng-template #loading>
+  <div class="d-flex justify-content-center">
+    <div class="spinner-border" role="status"></div>
+  </div>
+</ng-template>
+
+<!--   <button (click)="redirect()" type="button" class="btn btn-primary">Redireccionar</button> -->

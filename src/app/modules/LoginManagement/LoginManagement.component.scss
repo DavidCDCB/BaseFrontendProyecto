@@ -1,0 +1,17 @@
+div {
+  width: 100%;
+  display: grid;
+  place-content: center;
+}
+
+
+button {
+  border: 0; /* Cancelar borde del botón */
+  width: 150px; /* Establecer la longitud y el ancho apropiados del botón */
+  height: 30px;
+  margin-top: 18px; /* Establezca el ancho apropiado del marco exterior superior y aumente la distancia desde el cuadro de contraseña superior */
+  font-size: 18px; /* Modificar el tamaño del texto del botón */
+  color: white; /* Modificar el color del texto en el botón */
+  border-radius: 25px; /* Establecer los bordes izquierdo y derecho del botón en arcos */
+  background-image: linear-gradient(to right, #00dbde 0%, #fc00ff 100%); /* Agrega un color degradado al botón */
+}
