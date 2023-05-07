@@ -1,0 +1,86 @@
+<form [formGroup]="productForm" (ngSubmit)="saveProduct()" >
+	<div class="row my-2">
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="name" name="name" type="text" placeholder="Nombre del producto"
+					[className]="checkInput('name') ? 'form-control is-invalid' : 'form-control'">
+				<label for="name">Nombre del producto</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="code" name="code" type="text" placeholder="Código del producto"
+					[className]="checkInput('code') ? 'form-control is-invalid' : 'form-control'">
+				<label for="code">Código del producto</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+	</div>
+
+  <div class="row my-2">
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="brand" name="brand" type="text" placeholder="Marca del producto"
+					[className]="checkInput('brand') ? 'form-control is-invalid' : 'form-control'">
+				<label for="brand">Marca del producto</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="price" name="price" type="number" placeholder="Precio del producto"
+					[className]="checkInput('price') ? 'form-control is-invalid' : 'form-control'">
+				<label for="price">Precio del producto</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+	</div>
+
+  <div class="row my-2">
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="quantity" name="quantity" type="number" placeholder="Cantidad de producto"
+					[className]="checkInput('quantity') ? 'form-control is-invalid' : 'form-control'">
+				<label for="quantity">Cantidad del producto</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="description" name="description" type="text" placeholder="Descripción del producto"
+					[className]="checkInput('description') ? 'form-control is-invalid' : 'form-control'">
+				<label for="description">Descripción del producto</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="row my-2">
+		<div class="col mb-2 d-flex justify-content-center">
+			<button [disabled]="!productForm.valid"
+				[ngClass]="{
+					'btn-success': isUpdate,
+					'btn-primary': !isUpdate,
+					'btn d-flex align-items-center': true
+				}">
+				{{isUpdate ? 'Actualizar producto' : 'Registrar producto'}}
+				<i class="material-icons">save</i>
+			</button>
+		</div>
+	</div>
+
+</form>

@@ -33,12 +33,12 @@ export class UserTableComponent {
     this.onIdUser.emit(user);
   }
 
-  sendIdDelete(supplier: IUser): void {
-    this.onDelete.emit(supplier);
+  sendIdDelete(user: IUser): void {
+    this.onDelete.emit(user);
   }
 
-  sendIdUpdate(supplier: IUser): void {
-    this.onUpdate.emit(supplier);
+  sendIdUpdate(user: IUser): void {
+    this.onUpdate.emit(user);
   }
 
   filterList(): IUser[] | undefined {

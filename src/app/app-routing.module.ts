@@ -9,6 +9,12 @@ import { ServicesManagementModule } from './modules/ServicesManagement/ServicesM
 import { UsersManagementModule } from './modules/UsersManagement/UsersManagement.module';
 import { UsersManagementComponent } from './modules/UsersManagement/UsersManagement.component';
 import { LoginFormComponent } from './modules/LoginManagement/LoginManagement.component';
+import { AdministratorsManagementComponent } from './modules/AdministratorsManagement/AdministratorsManagement.component';
+import { AdministratorsManagementModule } from './modules/AdministratorsManagement/AdministratorsManagement.module';
+import { ProductsManagementComponent } from './modules/ProductsManagement/ProductsManagement.component';
+import { ProductsManagementModule } from './modules/ProductsManagement/ProductsManagement.module';
+import { RecepcionistsManagementComponent } from './modules/RecepcionistsManagement/RecepcionistsManagement.component';
+import { RecepcionistsManagementModule } from './modules/RecepcionistsManagement/RecepcionistsManagement.module';
 
 const routes: Routes = [
 /*   {
@@ -33,6 +39,19 @@ const routes: Routes = [
     component: UsersManagementComponent,
   },
   {
+    path: 'administrators',
+    component: AdministratorsManagementComponent
+  },
+  {
+    path: 'recepcionists',
+    component: RecepcionistsManagementComponent
+  }
+  ,
+  {
+    path: 'products',
+    component: ProductsManagementComponent
+  },
+  {
     path: 'services/:id',
     component: ServicesManagementComponent,
   },
@@ -48,7 +67,10 @@ const routes: Routes = [
     SupplierManagementModule,
     ClientsManagementModule,
     ServicesManagementModule,
-    UsersManagementModule
+    UsersManagementModule,
+    AdministratorsManagementModule,
+    RecepcionistsManagementModule,
+    ProductsManagementModule
   ],
   exports: [RouterModule]
 })
