@@ -12,7 +12,8 @@ import { PayrollsManagementComponent } from './modules/payrolls-management/payro
 import { PayrollsManagementModule } from './modules/payrolls-management/payrolls-management.module';
 import { UsersManagementModule } from './modules/UsersManagement/UsersManagement.module';
 import { UsersManagementComponent } from './modules/UsersManagement/UsersManagement.component';
-import { LoginFormComponent } from './modules/LoginManagement/LoginManagement.component';
+import { LoginsManagementComponent } from './modules/logins-management/logins-management.component';
+import { LoginsManagementModule } from './modules/logins-management/logins-management.module';
 
 const routes: Routes = [
 /*   {
@@ -22,7 +23,7 @@ const routes: Routes = [
   }, */
   {
     path: 'login',
-    component: LoginFormComponent,
+    component: LoginsManagementComponent,
   },
   {
     path: 'suppliers',
@@ -62,7 +63,8 @@ const routes: Routes = [
     ServicesManagementModule,
     MechanicsManagementModule,
     PayrollsManagementModule,
-    UsersManagementModule
+    UsersManagementModule,
+    LoginsManagementModule
   ],
   exports: [RouterModule]
 })

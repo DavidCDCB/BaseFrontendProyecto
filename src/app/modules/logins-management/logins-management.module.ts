@@ -1,17 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RequestsControllerService } from 'src/app/services/RequestsController.service';
+import { LoginsManagementComponent } from './logins-management.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RequestsControllerService } from 'src/app/services/RequestsController.service';
+
 
 
 @NgModule({
+  declarations: [
+    LoginsManagementComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [LoginManagementModule],
   providers: [RequestsControllerService],
-  exports: [LoginManagementModule]
 })
-export class LoginManagementModule { }
+export class LoginsManagementModule { }

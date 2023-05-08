@@ -1,4 +1,4 @@
 export interface IRequest {
     status: string;
-    response: string;
+    result: string;
 }
