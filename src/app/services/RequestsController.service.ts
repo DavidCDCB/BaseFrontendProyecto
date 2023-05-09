@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -11,19 +11,26 @@ import { IRequest } from '../core/models/ServiceRequest.interface';
 export class RequestsControllerService<T> {
 
   private urApi: string = environment.apiURL;
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + localStorage.getItem('token')
+    })
+  };
+
   constructor(private http: HttpClient) { }
 
   getElement(endpoint: string): Observable<T[]> {
-    return this.http.get<T[]>(this.urApi + endpoint);
+    return this.http.get<T[]>(this.urApi + endpoint, this.httpOptions);
   }
 
   getOneElement(endpoint: string, id: string): Observable<T> {
-    return this.http.get<T>(this.urApi + endpoint + '/' + id);
+    return this.http.get<T>(this.urApi + endpoint + '/' + id, this.httpOptions);
   }
 
   saveElement(endpoint: string, element: T): Observable<T> {
     console.table(element);
-    return this.http.post<T>(this.urApi + endpoint, element).pipe(
+    return this.http.post<T>(this.urApi + endpoint, element, this.httpOptions).pipe(
       catchError((error: HttpErrorResponse): Observable<any> => {
         console.error('There was an error!', error);
         return throwError(() => new Error(this.getServerErrorMessage(error)));
@@ -33,7 +40,7 @@ export class RequestsControllerService<T> {
 
   updateElement(endpoint: string, element: T, id: number): Observable<T> {
     console.table(element);
-    return this.http.put<T>(this.urApi + endpoint + '/' + id, element).pipe(
+    return this.http.put<T>(this.urApi + endpoint + '/' + id, element, this.httpOptions).pipe(
       catchError((error: HttpErrorResponse): Observable<any> => {
         console.error('There was an error!', error);
         return throwError(() => new Error(this.getServerErrorMessage(error)));
@@ -42,7 +49,7 @@ export class RequestsControllerService<T> {
   }
 
   deleteElement(endpoint: string, id: number): Observable<T> {
-    return this.http.delete<T>(this.urApi + endpoint + '/' +  id).pipe(
+    return this.http.delete<T>(this.urApi + endpoint + '/' +  id, this.httpOptions).pipe(
       catchError((error: HttpErrorResponse): Observable<any> => {
         console.error('There was an error!', error);
         return throwError(() => new Error(this.getServerErrorMessage(error)));

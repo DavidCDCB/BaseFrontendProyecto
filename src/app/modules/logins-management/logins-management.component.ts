@@ -41,7 +41,14 @@ export class LoginsManagementComponent implements OnInit {
     })
   }
 
-
+  /**
+   * saveLogin -> Guarda un login en la base de datos y
+   * devuelve un token para el usuario
+   * @param login -> ILogin
+   * @returns void
+   * @example
+   *
+   */
   saveLogin(): void {
     console.log(this.loginForm.value);
     let login: ILogin = this.loginForm.value;
