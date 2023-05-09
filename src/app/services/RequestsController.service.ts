@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { IRequest } from '../core/models/ServiceRequest.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -52,7 +53,7 @@ export class RequestsControllerService<T> {
   //POST -> https://localhost:7204/api/User/login  Retorna -> Token
   authenticateElement(endpoint: string, element: T): Observable<T> {
     return this.http.post<T>(this.urApi + endpoint+ '/login', element).pipe(
-      catchError((error: HttpErrorResponse): Observable<any> => {
+      catchError((error: HttpErrorResponse): Observable<T> => {
         console.error('There was an error!', error);
         return throwError(() => new Error(this.getServerErrorMessage(error)));
       })

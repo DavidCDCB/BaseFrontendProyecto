@@ -1,7 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ILogin } from 'src/app/core/models/Login.interface';
+import { IRequest } from 'src/app/core/models/Request.interface';
 import { RequestsControllerService } from 'src/app/services/RequestsController.service';
 import Swal, { SweetAlertIcon } from 'sweetalert2';
 
@@ -10,19 +11,27 @@ import Swal, { SweetAlertIcon } from 'sweetalert2';
   templateUrl: './logins-management.component.html',
   styleUrls: ['./logins-management.component.scss']
 })
-export class LoginsManagementComponent implements OnInit{
+export class LoginsManagementComponent implements OnInit {
   @Output()
   onSubmit = new EventEmitter<ILogin>();
   loginForm!: FormGroup;
   isUpdate: boolean = false;
   idForUpdate: number = 0;
   nameEntity: string = 'User';
+  nameHome: string = '/mechanics';
 
   constructor(private formBuilder: FormBuilder,
-    private httpLogin : RequestsControllerService<ILogin>,
-    private router: Router) {}
+    private httpLogin: RequestsControllerService<ILogin>,
+    private router: Router) { }
   ngOnInit() {
+    this.checkLocalStorage();
     this.initForm();
+  }
+
+  checkLocalStorage(): void {
+    if (localStorage.getItem('token') != null) {
+      this.router.navigate([this.nameHome]);
+    }
   }
 
   initForm(): void {
@@ -35,19 +44,23 @@ export class LoginsManagementComponent implements OnInit{
 
   saveLogin(): void {
     console.log(this.loginForm.value);
-    let login : ILogin = this.loginForm.value;
+    let login: ILogin = this.loginForm.value;
     this.httpLogin.authenticateElement(this.nameEntity, login).subscribe(
-      (response: any) => {
-        if (response) {
-          console.log(response);
-
-          localStorage.setItem('token', response);
-          // this.router.navigate(['/home']);
+      (response:any) => {
+        let data : IRequest = response;
+        console.log(data);
+        if (data.status == "ok") {
+          this.showToast('Credenciales aceptadas', 'success');
+          localStorage.setItem('token', data.result);
+          this.router.navigate(['/mechanics']);
         }
+        else {
+          this.showToast(data.result, 'warning');
+        }
+
       },
       (error: any) => {
-        // console.log(error);
-        this.showToast('Credenciales no aceptadas', 'warning');
+        console.log(error);
       }
     );
   }

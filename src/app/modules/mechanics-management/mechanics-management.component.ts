@@ -18,8 +18,14 @@ export class MechanicsManagementComponent {
 
   constructor(private HTTPMechanic: RequestsControllerService<IMechanic>) { }
 
-  ngOnInit(){
+  ngOnInit() {
+    let token = this.getTokens();
+    console.log(token);
     this.getMechanics();
+  }
+
+  getTokens(): string {
+    return localStorage.getItem('token')!;
   }
 
   setIdMechanic(idMechanic: number): void {
