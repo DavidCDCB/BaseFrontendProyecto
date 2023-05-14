@@ -31,7 +31,7 @@ export class RecepcionistsManagementComponent implements OnInit {
       next: (recepcionists: IRecepcionist[]) => {
         this.recepcionists = recepcionists;
       },
-      error: (error) => this.showToast('Error al obtener usuarios', 'error')
+      error: (error) => this.showToast('Error al obtener recepcionistas', 'error')
     });
     return this.recepcionists!;
   }
@@ -41,7 +41,7 @@ export class RecepcionistsManagementComponent implements OnInit {
       this.HTTPRecepcionist.saveElement(this.nameEntity, recepcionist).subscribe(
         (recepcionist: IRecepcionist) => {
           console.log(recepcionist);
-          this.showToast('¡Amacenado correctamente!', 'success');
+          this.showToast('¡Almacenado correctamente!', 'success');
           this.recepcionists?.push(recepcionist);
         }
       )

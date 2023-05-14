@@ -31,7 +31,7 @@ export class AdministratorsManagementComponent implements OnInit {
       next: (administrators: IAdministrator[]) => {
         this.administrators = administrators;
       },
-      error: (error) => this.showToast('Error al obtener usuarios', 'error')
+      error: (error) => this.showToast('Error al obtener administradores', 'error')
     });
     return this.administrators!;
   }
@@ -41,7 +41,7 @@ export class AdministratorsManagementComponent implements OnInit {
       this.HTTPAdministrator.saveElement(this.nameEntity, administrator).subscribe(
         (administrator: IAdministrator) => {
           console.log(administrator);
-          this.showToast('¡Amacenado correctamente!', 'success');
+          this.showToast('¡Almacenado correctamente!', 'success');
           this.administrators?.push(administrator);
         }
       )

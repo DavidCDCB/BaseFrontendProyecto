@@ -15,6 +15,8 @@ import { ProductsManagementComponent } from './modules/ProductsManagement/Produc
 import { ProductsManagementModule } from './modules/ProductsManagement/ProductsManagement.module';
 import { RecepcionistsManagementComponent } from './modules/RecepcionistsManagement/RecepcionistsManagement.component';
 import { RecepcionistsManagementModule } from './modules/RecepcionistsManagement/RecepcionistsManagement.module';
+import { PurchasesManagementComponent } from './modules/PurchasesManagement/PurchasesManagement.component';
+import { PurchasesManagementModule } from './modules/PurchasesManagement/PurchasesManagement.module';
 
 const routes: Routes = [
 /*   {
@@ -52,6 +54,10 @@ const routes: Routes = [
     component: ProductsManagementComponent
   },
   {
+    path: 'purchases',
+    component: PurchasesManagementComponent
+  },
+  {
     path: 'services/:id',
     component: ServicesManagementComponent,
   },
@@ -70,7 +76,8 @@ const routes: Routes = [
     UsersManagementModule,
     AdministratorsManagementModule,
     RecepcionistsManagementModule,
-    ProductsManagementModule
+    ProductsManagementModule,
+    PurchasesManagementModule
   ],
   exports: [RouterModule]
 })

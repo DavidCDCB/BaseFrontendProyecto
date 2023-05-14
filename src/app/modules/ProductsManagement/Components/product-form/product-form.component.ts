@@ -27,7 +27,6 @@ export class ProductFormComponent implements OnInit {
       name: ['ProductTes1', [Validators.required]],
       code: ['CodigoProd1', [Validators.required]],
       brand: ['BrandProd1', [Validators.required]],
-      salePrice: [5500, [Validators.required]],
       quantity: [15, [Validators.required]],
       description: ['DescriptionProd1', [Validators.required]],
     })

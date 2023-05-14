@@ -31,7 +31,7 @@ export class ProductsManagementComponent implements OnInit {
       next: (products: IProduct[]) => {
         this.products = products;
       },
-      error: (error) => this.showToast('Error al obtener usuarios', 'error')
+      error: (error) => this.showToast('Error al obtener productos', 'error')
     });
     return this.products!;
   }
@@ -41,7 +41,7 @@ export class ProductsManagementComponent implements OnInit {
       this.HTTPProduct.saveElement(this.nameEntity, product).subscribe(
         (product: IProduct) => {
           console.log(product);
-          this.showToast('¡Amacenado correctamente!', 'success');
+          this.showToast('¡Almacenado correctamente!', 'success');
           this.products?.push(product);
         }
       )

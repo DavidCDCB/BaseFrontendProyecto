@@ -23,8 +23,8 @@
 	</div>
 
   <div class="row my-2">
-		<div class="col-6">
-			<div class="form-floating">
+    <div class="col-6">
+      <div class="form-floating">
 				<input required formControlName="brand" name="brand" type="text" placeholder="Marca del producto"
 					[className]="checkInput('brand') ? 'form-control is-invalid' : 'form-control'">
 				<label for="brand">Marca del producto</label>
@@ -32,31 +32,8 @@
 					Este campo es requerido
 				</div>
 			</div>
-		</div>
-		<div class="col-6">
-			<div class="form-floating">
-				<input required formControlName="salePrice" name="salePrice" type="number" placeholder="Precio del producto"
-					[className]="checkInput('salePrice') ? 'form-control is-invalid' : 'form-control'">
-				<label for="salePrice">Precio del producto</label>
-				<div class="invalid-feedback">
-					Este campo es requerido
-				</div>
-			</div>
-		</div>
-	</div>
-
-  <div class="row my-2">
-		<div class="col-6">
-			<div class="form-floating">
-				<input required formControlName="quantity" name="quantity" type="number" placeholder="Cantidad de producto"
-					[className]="checkInput('quantity') ? 'form-control is-invalid' : 'form-control'">
-				<label for="quantity">Cantidad del producto</label>
-				<div class="invalid-feedback">
-					Este campo es requerido
-				</div>
-			</div>
-		</div>
-		<div class="col-6">
+    </div>
+    <div class="col-6">
 			<div class="form-floating">
 				<input required formControlName="description" name="description" type="text" placeholder="Descripción del producto"
 					[className]="checkInput('description') ? 'form-control is-invalid' : 'form-control'">
@@ -66,7 +43,11 @@
 				</div>
 			</div>
 		</div>
-	</div>
+  </div>
+
+
+
+
 
 
 	<div class="row my-2">

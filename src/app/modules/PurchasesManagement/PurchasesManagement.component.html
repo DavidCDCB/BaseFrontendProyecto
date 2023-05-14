@@ -1,3 +1,18 @@
-<p>
-  PurchasesManagement works!
-</p>
+<div class="d-flex justify-content-center">
+	<h3 class="text-white">Gestión de compras</h3>
+</div>
+
+<app-purchase-form #childForm (onSubmit)="savePurchase($event)" />
+<app-purchase-table *ngIf="purchases.length > 0; else loading"
+  [listOfPurchases]="purchases"
+  (onDelete)="deletePurchase($event)"
+  (onUpdate)="updatePurchase($event)"
+/>
+
+<ng-template #loading>
+  <div class="d-flex justify-content-center">
+    <div class="spinner-border" role="status"></div>
+  </div>
+</ng-template>
+
+<!--   <button (click)="redirect()" type="button" class="btn btn-primary">Redireccionar</button> -->
