@@ -1,30 +1,30 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IVehicle } from 'src/app/core/models/Vehicle.interface';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-vehicle-table',
-  templateUrl: './vehicle-table.component.html',
-  styleUrls: ['./vehicle-table.component.scss']
+  selector: 'app-vehicle-table-report',
+  templateUrl: './vehicle-table-report.component.html',
+  styleUrls: ['./vehicle-table-report.component.scss']
 })
-export class VehicleTableComponent {
+export class VehicleTableReportComponent {
 
   @Input()
   listOfVehicles?: IVehicle[] = [];
 
   @Output()
-  onDelete = new EventEmitter<IVehicle>();
-
-  @Output()
-  onUpdate = new EventEmitter<IVehicle>();
+  onIdVehicle = new EventEmitter<number>();
 
   filter?: string;
 
-  sendIdDelete(vehicle: IVehicle): void {
-    this.onDelete.emit(vehicle);
+  constructor(private router: Router) { }
+
+  redirectToService(idVehicle: number): void {
+    this.router.navigate([`/services/${idVehicle}`]);
   }
 
-  sendIdUpdate(vehicle: IVehicle): void {
-    this.onUpdate.emit(vehicle);
+  setIdVehicle(vehicle: number): void {
+    this.onIdVehicle.emit(vehicle);
   }
 
   filterList(): IVehicle[] | undefined {

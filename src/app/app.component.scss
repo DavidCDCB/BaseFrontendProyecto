@@ -10,6 +10,7 @@
     @return map.get($grid-breakpoints, $size);
 }
 
+
 .contenido{
     @media (min-width: get-br(md)) {
         width: 60%;

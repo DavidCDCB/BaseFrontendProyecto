@@ -30,9 +30,10 @@
               "src/assets"
             ],
             "styles": [
-              "bootswatch/dist/darkly/bootstrap.min.css",
+              "bootswatch/dist/flatly/bootstrap.min.css",
               "material-design-icons-iconfont/dist/material-design-icons.min.css",
-              "src/sass/styles.scss"
+              "src/sass/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
