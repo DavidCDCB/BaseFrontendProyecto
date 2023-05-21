@@ -14,7 +14,6 @@ import { UsersManagementModule } from './modules/UsersManagement/UsersManagement
 import { UsersManagementComponent } from './modules/UsersManagement/UsersManagement.component';
 import { LoginsManagementComponent } from './modules/logins-management/logins-management.component';
 import { LoginsManagementModule } from './modules/logins-management/logins-management.module';
-import { LoginFormComponent } from './modules/LoginManagement/LoginManagement.component';
 import { AdministratorsManagementComponent } from './modules/AdministratorsManagement/AdministratorsManagement.component';
 import { AdministratorsManagementModule } from './modules/AdministratorsManagement/AdministratorsManagement.module';
 import { ProductsManagementComponent } from './modules/ProductsManagement/ProductsManagement.component';
