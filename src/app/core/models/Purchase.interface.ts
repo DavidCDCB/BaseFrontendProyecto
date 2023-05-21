@@ -1,10 +1,11 @@
 export interface IPurchase{
 	id: number;
-	providerId: number;
-	productId: number;
 	purchasePrice:  number;
-	sellPrice:  number;
+	salePrice:  number;
 	quantity:  number;
 	description: string;
   code : string;
+  datePurchase : string;
+  productId: number;
+  supplierId: number;
 }

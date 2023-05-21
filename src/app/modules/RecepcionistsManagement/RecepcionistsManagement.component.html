@@ -1,3 +1,18 @@
-<p>
-  RecepcionistsManagement works!
-</p>
+<div class="d-flex justify-content-center">
+	<h3 class="text-white">Gestión de repecionistas</h3>
+</div>
+
+<app-recepcionist-form #childForm (onSubmit)="saveRecepcionist($event)" />
+<app-recepcionist-table *ngIf="recepcionists.length > 0; else loading"
+  [listOfRecepcionists]="recepcionists"
+  (onDelete)="deleteRecepcionist($event)"
+  (onUpdate)="updateRecepcionist($event)"
+/>
+
+<ng-template #loading>
+  <div class="d-flex justify-content-center">
+    <div class="spinner-border" role="status"></div>
+  </div>
+</ng-template>
+
+<!--   <button (click)="redirect()" type="button" class="btn btn-primary">Redireccionar</button> -->

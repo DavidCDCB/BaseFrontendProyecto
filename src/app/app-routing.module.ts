@@ -14,6 +14,25 @@ import { UsersManagementModule } from './modules/UsersManagement/UsersManagement
 import { UsersManagementComponent } from './modules/UsersManagement/UsersManagement.component';
 import { LoginsManagementComponent } from './modules/logins-management/logins-management.component';
 import { LoginsManagementModule } from './modules/logins-management/logins-management.module';
+import { LoginFormComponent } from './modules/LoginManagement/LoginManagement.component';
+import { AdministratorsManagementComponent } from './modules/AdministratorsManagement/AdministratorsManagement.component';
+import { AdministratorsManagementModule } from './modules/AdministratorsManagement/AdministratorsManagement.module';
+import { ProductsManagementComponent } from './modules/ProductsManagement/ProductsManagement.component';
+import { ProductsManagementModule } from './modules/ProductsManagement/ProductsManagement.module';
+import { RecepcionistsManagementComponent } from './modules/RecepcionistsManagement/RecepcionistsManagement.component';
+import { RecepcionistsManagementModule } from './modules/RecepcionistsManagement/RecepcionistsManagement.module';
+import { PurchasesManagementComponent } from './modules/PurchasesManagement/PurchasesManagement.component';
+import { PurchasesManagementModule } from './modules/PurchasesManagement/PurchasesManagement.module';
+import { ReportsManagementModule } from './modules/ReportsManagement/ReportsManagement.module';
+import { ReportsManagementComponent } from './modules/ReportsManagement/ReportsManagement.component';
+import { ProductReportModule } from './modules/ReportsManagement/Components/product-report/product-report.module';
+import { ProductReportComponent } from './modules/ReportsManagement/Components/product-report/product-report.component';
+import { PurchaseReportModule } from './modules/ReportsManagement/Components/purchase-report/purchase-report.module';
+import { PurchaseReportComponent } from './modules/ReportsManagement/Components/purchase-report/purchase-report.component';
+import { ServiceReportModule } from './modules/ReportsManagement/Components/service-report/service-report.module';
+import { ServiceReportComponent } from './modules/ReportsManagement/Components/service-report/service-report.component';
+import { VehicleReportModule } from './modules/ReportsManagement/Components/vehicle-report/vehicle-report.module';
+import { VehicleReportComponent } from './modules/ReportsManagement/Components/vehicle-report/vehicle-report.component';
 
 const routes: Routes = [
 /*   {
@@ -36,6 +55,46 @@ const routes: Routes = [
   {
     path: 'users',
     component: UsersManagementComponent,
+  },
+  {
+    path: 'administrators',
+    component: AdministratorsManagementComponent
+  },
+  {
+    path: 'recepcionists',
+    component: RecepcionistsManagementComponent
+  },
+  {
+    path: 'products',
+    component: ProductsManagementComponent
+  },
+  {
+    path: 'purchases',
+    component: PurchasesManagementComponent
+  },
+  {
+    path: 'reports',
+    component: ReportsManagementComponent
+  },
+  {
+    path: 'reports/product-report',
+    component: ProductReportComponent
+  },
+  {
+    path: 'reports/purchase-report',
+    component: PurchaseReportComponent
+  },
+  {
+    path: 'reports/service-report',
+    component: ServiceReportComponent
+  },
+  {
+    path: 'reports/vehicle-report',
+    component: VehicleReportComponent
+  },
+  {
+    path: 'services/:id',
+    component: ServicesManagementComponent,
   },
   {
     path: 'services/:id',
@@ -64,7 +123,16 @@ const routes: Routes = [
     MechanicsManagementModule,
     PayrollsManagementModule,
     UsersManagementModule,
-    LoginsManagementModule
+    LoginsManagementModule,
+    AdministratorsManagementModule,
+    RecepcionistsManagementModule,
+    ProductsManagementModule,
+    PurchasesManagementModule,
+    ReportsManagementModule,
+    ProductReportModule,
+    PurchaseReportModule,
+    ServiceReportModule,
+    VehicleReportModule
   ],
   exports: [RouterModule]
 })

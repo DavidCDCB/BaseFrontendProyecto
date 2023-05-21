@@ -1,0 +1,42 @@
+<input [(ngModel)]="filter" (input)="filterList" type="text" placeholder="Filtrar..." class="form-control">
+
+<div class="tabla">
+  <table class="table table-sm table-striped table-hover">
+    <thead class="table-dark header">
+      <tr>
+        <th scope="Origen">Nombre</th>
+        <th scope="Origen">Apellido</th>
+        <th scope="Origen">Teléfono</th>
+        <th scope="Origen">Dirección</th>
+        <th scope="Origen">Salario</th>
+        <th scope="Origen">Correo</th>
+        <th scope="Origen">IdUsuario</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let recepcionist of filterList(); let i = index">
+        <td>{{recepcionist.name}}</td>
+        <td>{{recepcionist.surname}}</td>
+        <td>{{recepcionist.phone}}</td>
+        <td>{{recepcionist.address}}</td>
+        <td>{{recepcionist.salary}}</td>
+        <td>{{recepcionist.email}}</td>
+        <td>{{recepcionist.userId}}</td>
+        <td>
+          <div class="d-flex justify-content-around">
+            <button type="button" class="btn btn-warning btn-sm"
+              data-bs-toggle="tooltip" data-bs-placement="top" title="Editar Recepcionista"
+              (click)="sendIdUpdate(recepcionist)">
+              <i class="material-icons">edit_note</i>
+            </button>
+            <button type="button" class="btn btn-danger btn-sm"
+              data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar Recepcionista"
+              (click)="sendIdDelete(recepcionist)">
+              <i class="material-icons">delete_forever</i>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

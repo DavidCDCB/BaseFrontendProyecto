@@ -1,6 +1,6 @@
 import { Component, OnChanges, ViewChild, Input, SimpleChanges } from '@angular/core';
 import { RequestsControllerService } from 'src/app/services/RequestsController.service';
-import { IVehicle } from 'src/app/core/models/Vehicle.interface.ts';
+import { IVehicle } from 'src/app/core/models/Vehicle.interface';
 import { VehicleFormComponent } from '../vehicle-form/vehicle-form.component';
 import Swal, { SweetAlertIcon } from 'sweetalert2';
 
