@@ -6,6 +6,14 @@ import { ClientsManagementModule } from './modules/ClientsManagement/ClientsMana
 import { ClientsManagementComponent } from './modules/ClientsManagement/ClientsManagement.component';
 import { ServicesManagementComponent } from './modules/ServicesManagement/ServicesManagement.component';
 import { ServicesManagementModule } from './modules/ServicesManagement/ServicesManagement.module';
+import { MechanicsManagementModule } from './modules/mechanics-management/mechanics-management.module';
+import { MechanicsManagementComponent } from './modules/mechanics-management/mechanics-management.component';
+import { PayrollsManagementComponent } from './modules/payrolls-management/payrolls-management.component';
+import { PayrollsManagementModule } from './modules/payrolls-management/payrolls-management.module';
+import { UsersManagementModule } from './modules/UsersManagement/UsersManagement.module';
+import { UsersManagementComponent } from './modules/UsersManagement/UsersManagement.component';
+import { LoginsManagementComponent } from './modules/logins-management/logins-management.component';
+import { LoginsManagementModule } from './modules/logins-management/logins-management.module';
 
 const routes: Routes = [
 /*   {
@@ -13,6 +21,10 @@ const routes: Routes = [
     pathMatch: 'full',
     redirectTo: 'suppliers',
   }, */
+  {
+    path: 'login',
+    component: LoginsManagementComponent,
+  },
   {
     path: 'suppliers',
     component: SupplierManagementComponent,
@@ -22,8 +34,20 @@ const routes: Routes = [
     component: ClientsManagementComponent,
   },
   {
+    path: 'users',
+    component: UsersManagementComponent,
+  },
+  {
     path: 'services/:id',
     component: ServicesManagementComponent,
+  },
+  {
+    path: 'mechanics',
+    component: MechanicsManagementComponent,
+  },
+  {
+    path: 'payrolls',
+    component: PayrollsManagementComponent,
   },
   {
     path: '**',
@@ -33,10 +57,14 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes), 
+    RouterModule.forRoot(routes),
     SupplierManagementModule,
     ClientsManagementModule,
-    ServicesManagementModule
+    ServicesManagementModule,
+    MechanicsManagementModule,
+    PayrollsManagementModule,
+    UsersManagementModule,
+    LoginsManagementModule
   ],
   exports: [RouterModule]
 })

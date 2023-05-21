@@ -4,8 +4,14 @@
 
 <app-service-form #childForm (onSubmit)="saveServiceRequest($event)"/>
 <app-service-table
-  [listOfRequest]="requests" 
+  [listOfRequest]="requests"
   (onDelete)="deleteRequest($event)"
   (onUpdate)="updateRequestService($event)"
   (onView)="viewRequestService($event)"
 />
+<ng-template #loading>
+  <div class="d-flex justify-content-center">
+    <div class="spinner-border" role="status"></div>
+  </div>
+</ng-template>
+<app-inconvenients-management [requestId]="requestId"/>

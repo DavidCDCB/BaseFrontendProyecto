@@ -1,0 +1,110 @@
+<form [formGroup]="mechanicForm" (ngSubmit)="saveMechanic()">
+  <div class="row my-2">
+    <div class="col-6">
+      <div class="form-floating">
+        <input required formControlName="name" name="name" type="text" placeholder="Nombre del mecanico"
+          [className]="checkInput('name') ? 'form-control is-invalid' : 'form-control'">
+        <label for="name">Nombre del mecanico</label>
+        <div class="invalid-feedback">
+          Este campo es requerido
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="form-floating">
+        <input required formControlName="surname" name="surname" type="text" placeholder="Apellido del mecanico"
+          [className]="checkInput('surname') ? 'form-control is-invalid' : 'form-control'">
+        <label for="surname">Apellido del mecanico</label>
+        <div class="invalid-feedback">
+          Este campo es requerido
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row my-2">
+    <div class="col-6">
+      <div class="form-floating">
+        <input required formControlName="phone" name="phone" type="text" placeholder="Celular del mecanico"
+          [className]="checkInput('phone') ? 'form-control is-invalid' : 'form-control'">
+        <label for="phone">Celular del mecanico</label>
+        <div class="invalid-feedback">
+          Este campo es requerido
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="form-floating">
+        <input required formControlName="role" name="role" type="text" placeholder="Tipo de mecanico"
+          [className]="checkInput('role') ? 'form-control is-invalid' : 'form-control'">
+        <label for="role">Tipo de mecanico</label>
+        <div class="invalid-feedback">
+          Este campo es requerido
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row my-2">
+    <div class="col-6">
+      <div class="form-floating">
+        <input required formControlName="email" name="email" type="text" placeholder="Correo del mecanico"
+          [className]="checkInput('email') ? 'form-control is-invalid' : 'form-control'">
+        <label for="email">Correo del mecanico"</label>
+        <div class="invalid-feedback">
+          Este campo es requerido
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="form-floating">
+        <input required formControlName="address" name="address" type="text" placeholder="Dirección mecanico"
+          [className]="checkInput('address') ? 'form-control is-invalid' : 'form-control'">
+        <label for="address">Dirección mecanico</label>
+        <div class="invalid-feedback">
+          Este campo es requerido
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TODO: falta los campos commision, address and userId -->
+  <div class="row my-2">
+    <div class="col-6">
+      <div class="form-floating">
+        <input required formControlName="commission" name="commission" type="number" placeholder="Comision del mecanico"
+          [className]="checkInput('commission') ? 'form-control is-invalid' : 'form-control'">
+        <label for="commission">Comision del mecanico</label>
+        <div class="invalid-feedback">
+          Este campo es requerido
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="form-floating">
+        <input required formControlName="salary" name="salary" type="number" placeholder="Salario del mecanico"
+          [className]="checkInput('salary') ? 'form-control is-invalid' : 'form-control'">
+        <label for="salary">Salario del mecanico</label>
+        <div class="invalid-feedback">
+          Este campo es requerido
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="row my-2">
+    <div class="col mb-2 d-flex justify-content-center">
+      <button [disabled]="!mechanicForm.valid" [ngClass]="{
+					'btn-success': isUpdate,
+					'btn-primary': !isUpdate,
+					'btn d-flex align-items-center': true
+				}">
+        {{isUpdate ? 'Actualizar mecanico' : 'Registrar mecanico'}}
+        <i class="material-icons">save</i>
+      </button>
+    </div>
+  </div>
+
+</form>

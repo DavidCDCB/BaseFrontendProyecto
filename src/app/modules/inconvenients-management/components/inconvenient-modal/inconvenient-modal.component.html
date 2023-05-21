@@ -1,0 +1,18 @@
+<div class="modal fade" id="inconvenientModal" tabindex="-1" aria-labelledby="inconvenientModal" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="inconvenientModalLabel">Gestión de vehiculos para el cliente {{requestId}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-inconvenient-form #childForm (onSubmit)="saveInconvenient($event)" />
+        <app-inconvenient-table
+          [listOfInconvenients]="inconvenients"
+          (onDelete)="deleteInconvenient($event)"
+          (onUpdate)="updateInconvenient($event)"
+        />
+      </div>
+    </div>
+  </div>
+</div>

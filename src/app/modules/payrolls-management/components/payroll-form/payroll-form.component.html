@@ -1,0 +1,84 @@
+<form [formGroup]="payrollForm" (ngSubmit)="savePayroll()">
+  <div class="row my-2">
+    <div class="col-6">
+      <div class="form-floating">
+        <input required formControlName="starDate" name="starDate" type="date" placeholder="Fecha de inicio"
+          [className]="checkInput('starDate') ? 'form-control is-invalid' : 'form-control'">
+        <label for="starDate">Fecha de inicio</label>
+        <div class="invalid-feedback">
+          Este campo es requerido
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="form-floating">
+        <input required formControlName="endDate" name="endDate" type="date" placeholder="Fecha de fin"
+          [className]="checkInput('endDate') ? 'form-control is-invalid' : 'form-control'">
+        <label for="endDate">Fecha de fin</label>
+        <div class="invalid-feedback">
+          Este campo es requerido
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row my-2">
+    <div class="col-4">
+      <div class="form-floating">
+        <input required formControlName="accruals" name="accruals" type="number" placeholder="Devengos"
+          [className]="checkInput('accruals') ? 'form-control is-invalid' : 'form-control'">
+        <label for="accruals">Devengos</label>
+        <div class="invalid-feedback">
+          Este campo es requerido
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="form-floating">
+        <input required formControlName="deductions" name="deductions" type="number" placeholder="Deducciónes"
+          [className]="checkInput('deductions') ? 'form-control is-invalid' : 'form-control'">
+        <label for="deductions">Deducciones</label>
+        <div class="invalid-feedback">
+          Este campo es requerido
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="form-floating">
+        <input required formControlName="settlement" name="settlement" type="text" placeholder="Salario liquido"
+          [className]="checkInput('settlement') ? 'form-control is-invalid' : 'form-control'">
+        <label for="settlement">Salario liquido"</label>
+        <div class="invalid-feedback">
+          Este campo es requerido
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row my-2">
+    <div class="col-12">
+      <div class="form-floating">
+        <input required formControlName="description" name="description" type="text" placeholder="Descripcion"
+          [className]="checkInput('description') ? 'form-control is-invalid' : 'form-control'">
+        <label for="description">Descripcion</label>
+        <div class="invalid-feedback">
+          Este campo es requerido
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row my-2">
+    <div class="col mb-2 d-flex justify-content-center">
+      <button [disabled]="!payrollForm.valid" [ngClass]="{
+					'btn-success': isUpdate,
+					'btn-primary': !isUpdate,
+					'btn d-flex align-items-center': true
+				}">
+        {{isUpdate ? 'Actualizar mecanico' : 'Registrar mecanico'}}
+        <i class="material-icons">save</i>
+      </button>
+    </div>
+  </div>
+
+</form>
