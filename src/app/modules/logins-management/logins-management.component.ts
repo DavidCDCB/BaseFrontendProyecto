@@ -62,7 +62,7 @@ export class LoginsManagementComponent implements OnInit {
           this.router.navigate(['/mechanics']);
         }
         else {
-          this.showToast(data.result, 'warning');
+          this.showToast(data.status, 'warning');
         }
 
       },
