@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RequestsManagementComponent } from './requests-management.component';
 import { RequestFormComponent } from './components/request-form/request-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RequestsControllerService } from 'src/app/services/RequestsController.service';
 
 
 
@@ -11,7 +13,10 @@ import { RequestFormComponent } from './components/request-form/request-form.com
     RequestFormComponent
   ],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  providers: [RequestsControllerService],
 })
 export class RequestsManagementModule { }
