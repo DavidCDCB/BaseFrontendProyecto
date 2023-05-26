@@ -25,26 +25,17 @@ export class LoginsManagementComponent implements OnInit {
     private router: Router) { }
   ngOnInit() {
     // this.checkLocalStorage();
+    // this.logAut();
     this.initForm();
   }
 
-  // checkLocalStorage(): void {
-  //   if (localStorage.getItem('token') != null ) {
-  //     let tokenVerif = localStorage.getItem('token');
-  //     //validar que el token con validateToken service
-  //     this.httpLogin.validateToken(tokenVerif!).subscribe(
-  //       (response: any) => {
-  //         let data: IRequest = response;
-  //         if (data.status == "ok") {
-  //           this.router.navigate([this.nameHome]);
-  //         }
-  //         else {
-  //           this.showToast(data.status, 'warning');
-  //         }
-  //       }
-  //     );
-  //   }
-  // }
+
+
+  //funcion que elimina el token del localstorage
+  logAut(): void {
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+  }
 
   initForm(): void {
     this.loginForm = this.formBuilder.group({

@@ -68,13 +68,8 @@ export class RequestsControllerService<T> {
   }
   //validar token del backend
   //GET -> https://localhost:7204/api/User/validate/{token}  Retorna -> request
-  validateToken(token: string): Observable<T> {
-    return this.http.get<T>(this.urApi + "/validate/" +token, this.httpOptions).pipe(
-      catchError((error: HttpErrorResponse): Observable<T> => {
-        console.error('There was an error!', error);
-        return throwError(() => new Error(this.getServerErrorMessage(error)));
-      })
-    )
+  validarToken(id: string): Observable<T> {
+    return this.http.get<T>(this.urApi + "User/validate" + '/' + id, this.httpOptions);
   }
 
   private getServerErrorMessage(error: HttpErrorResponse): string {

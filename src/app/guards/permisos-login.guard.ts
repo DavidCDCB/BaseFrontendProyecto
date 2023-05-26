@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import Swal, { SweetAlertIcon } from 'sweetalert2';
+import { RequestsControllerService } from '../services/RequestsController.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PermisosLoginGuard implements CanActivate {
+  nameLogin: string = '/login';
+  accesar: boolean = false;
+
+  constructor(private httpLogin: RequestsControllerService<any>, private router: Router) { }
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    //validar si el usuario esta logueado y role es admin
-    if (this.validarCredenciales()) {
-      return true;
-    }
-    this.showToast("No tienes permisos para acceder a esta ruta", 'warning');
-    return false;
+    return this.checkLocalStorage();
   }
 
   validarCredenciales(): boolean {
@@ -30,6 +30,29 @@ export class PermisosLoginGuard implements CanActivate {
     }
     return false;
   }
+  async checkLocalStorage(): Promise<boolean> {
+    if (localStorage.getItem('token') != null) {
+      const tokenVerif = localStorage.getItem('token');
+
+      try {
+        const response: any = await this.httpLogin.validarToken(tokenVerif!).toPromise();
+
+        if (response.status == "ok") {
+          this.showToast(response.result, 'success');
+          return true;
+        } else {
+          this.showToast(response.result, 'warning');
+          return false;
+        }
+      } catch (error) {
+        console.error(error);
+        return false;
+      }
+    }
+
+    return false;
+  }
+
   showToast(text: string, icon: SweetAlertIcon): void {
     Swal.mixin({
       toast: true,
