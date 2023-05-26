@@ -24,15 +24,27 @@ export class LoginsManagementComponent implements OnInit {
     private httpLogin: RequestsControllerService<ILogin>,
     private router: Router) { }
   ngOnInit() {
-    this.checkLocalStorage();
+    // this.checkLocalStorage();
     this.initForm();
   }
 
-  checkLocalStorage(): void {
-    if (localStorage.getItem('token') != null) {
-      this.router.navigate([this.nameHome]);
-    }
-  }
+  // checkLocalStorage(): void {
+  //   if (localStorage.getItem('token') != null ) {
+  //     let tokenVerif = localStorage.getItem('token');
+  //     //validar que el token con validateToken service
+  //     this.httpLogin.validateToken(tokenVerif!).subscribe(
+  //       (response: any) => {
+  //         let data: IRequest = response;
+  //         if (data.status == "ok") {
+  //           this.router.navigate([this.nameHome]);
+  //         }
+  //         else {
+  //           this.showToast(data.status, 'warning');
+  //         }
+  //       }
+  //     );
+  //   }
+  // }
 
   initForm(): void {
     this.loginForm = this.formBuilder.group({
@@ -59,6 +71,7 @@ export class LoginsManagementComponent implements OnInit {
         if (data.status == "ok") {
           this.showToast('Credenciales aceptadas', 'success');
           localStorage.setItem('token', data.result);
+          localStorage.setItem('role', data.role);
           this.router.navigate(['/mechanics']);
         }
         else {
