@@ -14,6 +14,7 @@ import { UsersManagementModule } from './modules/UsersManagement/UsersManagement
 import { UsersManagementComponent } from './modules/UsersManagement/UsersManagement.component';
 import { LoginsManagementComponent } from './modules/logins-management/logins-management.component';
 import { LoginsManagementModule } from './modules/logins-management/logins-management.module';
+import { PermisosLoginGuard } from './guards/permisos-login.guard';
 
 const routes: Routes = [
 /*   {
@@ -44,6 +45,7 @@ const routes: Routes = [
   {
     path: 'mechanics',
     component: MechanicsManagementComponent,
+    canActivate: [PermisosLoginGuard],
   },
   {
     path: 'payrolls',
