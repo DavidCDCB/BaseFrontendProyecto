@@ -2,11 +2,11 @@
 	<h2 class="text-black">Gestión de repecionistas</h2>
 </div>
 
-<app-recepcionist-form #childForm (onSubmit)="saveRecepcionist($event)" />
-<app-recepcionist-table *ngIf="recepcionists.length > 0; else loading"
-  [listOfRecepcionists]="recepcionists"
-  (onDelete)="deleteRecepcionist($event)"
-  (onUpdate)="updateRecepcionist($event)"
+<app-receptionist-form #childForm (onSubmit)="saveReceptionist($event)" />
+<app-receptionist-table *ngIf="receptionists.length > 0; else loading"
+  [listOfReceptionists]="receptionists"
+  (onDelete)="deleteReceptionist($event)"
+  (onUpdate)="updateReceptionist($event)"
 />
 
 <ng-template #loading>

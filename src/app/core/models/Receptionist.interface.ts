@@ -1,4 +1,4 @@
-export interface IRecepcionist{
+export interface IReceptionist{
   id : number;
   name : string;
   surname : string;

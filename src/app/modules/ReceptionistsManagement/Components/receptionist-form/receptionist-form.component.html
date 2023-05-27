@@ -1,10 +1,10 @@
-<form [formGroup]="recepcionistForm" (ngSubmit)="saveRecepcionist()" >
+<form [formGroup]="receptionistForm" (ngSubmit)="saveReceptionist()" >
 	<div class="row my-2">
 		<div class="col-6">
 			<div class="form-floating">
 				<input required formControlName="name" name="name" type="text" placeholder="Nombre del recepcionista"
 					[className]="checkInput('name') ? 'form-control is-invalid' : 'form-control'">
-				<label for="name">Nombre del recepcionista</label>
+				<label for="name">Nombre del receptionista</label>
 				<div class="invalid-feedback">
 					Este campo es requerido
 				</div>
@@ -14,7 +14,7 @@
 			<div class="form-floating">
 				<input required formControlName="surname" name="surname" type="text" placeholder="Apellido del recepcionista"
 					[className]="checkInput('surname') ? 'form-control is-invalid' : 'form-control'">
-				<label for="surname">Apellido del recepcionista</label>
+				<label for="surname">Apellido del receptionista</label>
 				<div class="invalid-feedback">
 					Este campo es requerido
 				</div>
@@ -35,9 +35,9 @@
 		</div>
 		<div class="col-6">
 			<div class="form-floating">
-				<input required formControlName="address" name="address" type="text" placeholder="Dirección del recepcionsta"
+				<input required formControlName="address" name="address" type="text" placeholder="Dirección del recepcionista"
 					[className]="checkInput('address') ? 'form-control is-invalid' : 'form-control'">
-				<label for="address">Dirección del recepcionista</label>
+				<label for="address">Dirección del receptionista</label>
 				<div class="invalid-feedback">
 					Este campo es requerido
 				</div>
@@ -48,7 +48,7 @@
   <div class="row my-2">
 		<div class="col-4">
 			<div class="form-floating">
-				<input required formControlName="salary" name="salary" type="number" placeholder="Salario del recepcionsta"
+				<input required formControlName="salary" name="salary" type="number" placeholder="Salario del recepcionista"
 					[className]="checkInput('salary') ? 'form-control is-invalid' : 'form-control'">
 				<label for="salary">Salario del recepcionista</label>
 				<div class="invalid-feedback">
@@ -58,9 +58,9 @@
 		</div>
 		<div class="col-4">
 			<div class="form-floating">
-				<input required formControlName="email" name="email" type="text" placeholder="Correo del recepcionista"
+				<input required formControlName="email" name="email" type="text" placeholder="Correo del receptconista"
 					[className]="checkInput('email') ? 'form-control is-invalid' : 'form-control'">
-				<label for="password">Correo del recepcionsta</label>
+				<label for="password">Correo del recepcionista</label>
 				<div class="invalid-feedback">
 					Este campo es requerido
 				</div>
@@ -83,13 +83,13 @@
 
 	<div class="row my-2">
 		<div class="col mb-2 d-flex justify-content-center">
-			<button [disabled]="!recepcionistForm.valid"
+			<button [disabled]="!receptionistForm.valid"
 				[ngClass]="{
 					'btn-success': isUpdate,
 					'btn-primary': !isUpdate,
 					'btn d-flex align-items-center': true
 				}">
-				{{isUpdate ? 'Actualizar usuario' : 'Registrar usuario'}}
+				{{isUpdate ? 'Actualizar recepcionista' : 'Registrar recepcionista'}}
 				<i class="material-icons">save</i>
 			</button>
 		</div>

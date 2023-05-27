@@ -14,24 +14,24 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let recepcionist of filterList(); let i = index">
-        <td>{{recepcionist.name}}</td>
-        <td>{{recepcionist.surname}}</td>
-        <td>{{recepcionist.phone}}</td>
-        <td>{{recepcionist.address}}</td>
-        <td>{{recepcionist.salary}}</td>
-        <td>{{recepcionist.email}}</td>
-        <td>{{recepcionist.userId}}</td>
+      <tr *ngFor="let receptionist of filterList(); let i = index">
+        <td>{{receptionist.name}}</td>
+        <td>{{receptionist.surname}}</td>
+        <td>{{receptionist.phone}}</td>
+        <td>{{receptionist.address}}</td>
+        <td>{{receptionist.salary}}</td>
+        <td>{{receptionist.email}}</td>
+        <td>{{receptionist.userId}}</td>
         <td>
           <div class="d-flex justify-content-around">
             <button type="button" class="btn btn-warning btn-sm"
-              data-bs-toggle="tooltip" data-bs-placement="top" title="Editar Recepcionista"
-              (click)="sendIdUpdate(recepcionist)">
+              data-bs-toggle="tooltip" data-bs-placement="top" title="Editar Receptionista"
+              (click)="sendIdUpdate(receptionist)">
               <i class="material-icons">edit_note</i>
             </button>
             <button type="button" class="btn btn-danger btn-sm"
-              data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar Recepcionista"
-              (click)="sendIdDelete(recepcionist)">
+              data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar Receptionista"
+              (click)="sendIdDelete(receptionist)">
               <i class="material-icons">delete_forever</i>
             </button>
           </div>

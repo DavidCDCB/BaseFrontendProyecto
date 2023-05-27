@@ -18,8 +18,8 @@ import { AdministratorsManagementComponent } from './modules/AdministratorsManag
 import { AdministratorsManagementModule } from './modules/AdministratorsManagement/AdministratorsManagement.module';
 import { ProductsManagementComponent } from './modules/ProductsManagement/ProductsManagement.component';
 import { ProductsManagementModule } from './modules/ProductsManagement/ProductsManagement.module';
-import { RecepcionistsManagementComponent } from './modules/RecepcionistsManagement/RecepcionistsManagement.component';
-import { RecepcionistsManagementModule } from './modules/RecepcionistsManagement/RecepcionistsManagement.module';
+import { ReceptionistsManagementComponent } from './modules/ReceptionistsManagement/ReceptionistsManagement.component';
+import { ReceptionistsManagementModule } from './modules/ReceptionistsManagement/ReceptionistsManagement.module';
 import { PurchasesManagementComponent } from './modules/PurchasesManagement/PurchasesManagement.component';
 import { PurchasesManagementModule } from './modules/PurchasesManagement/PurchasesManagement.module';
 import { ReportsManagementModule } from './modules/ReportsManagement/ReportsManagement.module';
@@ -60,8 +60,8 @@ const routes: Routes = [
     component: AdministratorsManagementComponent
   },
   {
-    path: 'recepcionists',
-    component: RecepcionistsManagementComponent
+    path: 'receptionists',
+    component: ReceptionistsManagementComponent
   },
   {
     path: 'products',
@@ -124,7 +124,7 @@ const routes: Routes = [
     UsersManagementModule,
     LoginsManagementModule,
     AdministratorsManagementModule,
-    RecepcionistsManagementModule,
+    ReceptionistsManagementModule,
     ProductsManagementModule,
     PurchasesManagementModule,
     ReportsManagementModule,

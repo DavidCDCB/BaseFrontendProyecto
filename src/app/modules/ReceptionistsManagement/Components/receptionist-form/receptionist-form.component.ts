@@ -1,18 +1,18 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
-import { IRecepcionist } from 'src/app/core/models/Recepcionist.interface';
+import { IReceptionist } from 'src/app/core/models/Receptionist.interface';
 
 @Component({
-  selector: 'app-recepcionist-form',
-  templateUrl: './recepcionist-form.component.html',
-  styleUrls: ['./recepcionist-form.component.scss'],
+  selector: 'app-receptionist-form',
+  templateUrl: './receptionist-form.component.html',
+  styleUrls: ['./receptionist-form.component.scss'],
 })
-export class RecepcionistFormComponent implements OnInit {
+export class ReceptionistFormComponent implements OnInit {
 
   @Output()
-  onSubmit = new EventEmitter<IRecepcionist>();
+  onSubmit = new EventEmitter<IReceptionist>();
 
-  recepcionistForm!: FormGroup;
+  receptionistForm!: FormGroup;
   isUpdate: boolean = false;
   idForUpdate: number = 0;
 
@@ -23,7 +23,7 @@ export class RecepcionistFormComponent implements OnInit {
   }
 
   initForm(): void {
-    this.recepcionistForm = this.formBuilder.group({
+    this.receptionistForm = this.formBuilder.group({
       name: ['RecName1', [Validators.required]],
       surname: ['RecSurname1', [Validators.required]],
       phone: ['123456789', [Validators.required]],
@@ -34,24 +34,24 @@ export class RecepcionistFormComponent implements OnInit {
     })
   }
 
-  saveRecepcionist(): void {
-    this.onSubmit.emit(this.recepcionistForm.value);
-    this.recepcionistForm.reset();
+  saveReceptionist(): void {
+    this.onSubmit.emit(this.receptionistForm.value);
+    this.receptionistForm.reset();
     if(this.isUpdate){
       this.isUpdate = false;
     }
   }
 
   checkInput(input: string): boolean {
-    const field = this.recepcionistForm.get(input);
+    const field = this.receptionistForm.get(input);
     return field!.pristine === false && field!.errors != null;
   }
 
-  changeFields(element: IRecepcionist): void {
+  changeFields(element: IReceptionist): void {
     this.isUpdate = true;
     console.log(element);
     if (element) {
-      this.recepcionistForm.patchValue(element);
+      this.receptionistForm.patchValue(element);
     }
   }
 
