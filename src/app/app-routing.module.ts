@@ -15,6 +15,8 @@ import { UsersManagementComponent } from './modules/UsersManagement/UsersManagem
 import { LoginsManagementComponent } from './modules/logins-management/logins-management.component';
 import { LoginsManagementModule } from './modules/logins-management/logins-management.module';
 import { PermisosLoginGuard } from './guards/permisos-login.guard';
+import { RequestsManagementModule } from './modules/requests-management/requests-management.module';
+import { RequestsManagementComponent } from './modules/requests-management/requests-management.component';
 
 const routes: Routes = [
 /*   {
@@ -52,6 +54,10 @@ const routes: Routes = [
     component: PayrollsManagementComponent,
   },
   {
+    path: 'request',
+    component: RequestsManagementComponent
+  },
+  {
     path: '**',
     redirectTo: '',
   }
@@ -66,7 +72,8 @@ const routes: Routes = [
     MechanicsManagementModule,
     PayrollsManagementModule,
     UsersManagementModule,
-    LoginsManagementModule
+    LoginsManagementModule,
+    RequestsManagementModule
   ],
   exports: [RouterModule]
 })
