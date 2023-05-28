@@ -1,26 +1,3 @@
-<div class="container mt-5">
-  <div class="row custom-wrapper">
-    <h2 class="mb-3 text-center">Generación de Reportes</h2>
-    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-      <div class="d-grid">
-        <select
-          class="custom-select mb-3"
-          (change)="changeReport($event)"
-          formControlName="reportName"
-        >
-
-          <option *ngFor="let report of Report" [ngValue]="report">
-            {{ report }}
-          </option>
-        </select>
-        <!-- error block -->
-        <div class="invalid-feedback" *ngIf="isSubmitted && reportName?.invalid">
-          <sup>*</sup>Please provide report name
-        </div>
-        <button type="submit" class="btn btn-success btn-lg btn-block" >
-          Enviar reporte
-        </button>
-      </div>
-    </form>
-  </div>
-</div>
+<p>
+  ReportsManagement works!
+</p>

@@ -1,18 +1,3 @@
-<div class="d-flex justify-content-center">
-	<h2 class="text-black">Gestión de productos</h2>
-</div>
-
-<app-product-form #childForm (onSubmit)="saveProduct($event)" />
-<app-product-table *ngIf="products.length > 0; else loading"
-  [listOfProducts]="products"
-  (onDelete)="deleteProduct($event)"
-  (onUpdate)="updateProduct($event)"
-/>
-
-<ng-template #loading>
-  <div class="d-flex justify-content-center">
-    <div class="spinner-border" role="status"></div>
-  </div>
-</ng-template>
-
-<!--   <button (click)="redirect()" type="button" class="btn btn-primary">Redireccionar</button> -->
+<p>
+  ProductsManagement works!
+</p>

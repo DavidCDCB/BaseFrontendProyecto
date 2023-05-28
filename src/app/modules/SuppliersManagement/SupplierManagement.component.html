@@ -1,12 +1,12 @@
 <div class="d-flex justify-content-center">
-	<h2 class="text-black">Gestión de proveedores</h2>
+	<h3 class="text-white">Gestión de proveedores</h3>
 </div>
 
 <app-supplier-form #childForm (onSubmit)="saveSupplier($event)" />
-<app-supplier-table *ngIf="suppliers.length > 0; else loading"
-  [listOfSuppliers]="suppliers"
+<app-supplier-table *ngIf="suppliers.length > 0; else loading" 
+  [listOfSuppliers]="suppliers" 
   (onDelete)="deleteSupplier($event)"
-  (onUpdate)="updateSupplier($event)"
+  (onUpdate)="updateSupplier($event)" 
 />
 
 <ng-template #loading>

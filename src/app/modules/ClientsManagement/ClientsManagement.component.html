@@ -1,12 +1,12 @@
 <div class="d-flex justify-content-center">
-	<h2 class="text-black">Gestión de clientes</h2>
+	<h3 class="text-white">Gestión de clientes</h3>
 </div>
 
 <app-client-form #childForm (onSubmit)="saveClient($event)" />
-<app-client-table *ngIf="clients.length > 0; else loading"
-  [listOfClients]="clients"
+<app-client-table *ngIf="clients.length > 0; else loading" 
+  [listOfClients]="clients" 
   (onDelete)="deleteClient($event)"
-  (onUpdate)="updateClient($event)"
+  (onUpdate)="updateClient($event)" 
   (onIdClient)="setIdClient($event)"
 />
 
