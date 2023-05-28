@@ -1,0 +1,24 @@
+<input [(ngModel)]="filter" (input)="filterList" type="text" placeholder="Filtrar..." class="form-control">
+
+<div class="tabla" id="content" #content>
+  <table class="table table-sm table-striped table-hover">
+		<thead class="table-dark header">
+			<tr>
+				<th scope="Origen">Placa</th>
+				<th scope="Origen">Año</th>
+				<th scope="Origen">Color</th>
+				<th scope="Origen">Modelo</th>
+				<th scope="Origen">Descripción</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let vehicle of filterList(); let i = index">
+        <td>{{vehicle.plate}}</td>
+        <td>{{vehicle.year}}</td>
+        <td>{{vehicle.color}}</td>
+        <td>{{vehicle.model}}</td>
+        <td>{{vehicle.description}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

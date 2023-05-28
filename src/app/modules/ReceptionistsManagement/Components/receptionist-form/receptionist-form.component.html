@@ -1,0 +1,98 @@
+<form [formGroup]="receptionistForm" (ngSubmit)="saveReceptionist()" >
+	<div class="row my-2">
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="name" name="name" type="text" placeholder="Nombre del recepcionista"
+					[className]="checkInput('name') ? 'form-control is-invalid' : 'form-control'">
+				<label for="name">Nombre del receptionista</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="surname" name="surname" type="text" placeholder="Apellido del recepcionista"
+					[className]="checkInput('surname') ? 'form-control is-invalid' : 'form-control'">
+				<label for="surname">Apellido del receptionista</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+	</div>
+
+  <div class="row my-2">
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="phone" name="phone" type="text" placeholder="Teléfono del recepcionista"
+					[className]="checkInput('phone') ? 'form-control is-invalid' : 'form-control'">
+				<label for="phone">Teléfono del recepcionsta</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="address" name="address" type="text" placeholder="Dirección del recepcionista"
+					[className]="checkInput('address') ? 'form-control is-invalid' : 'form-control'">
+				<label for="address">Dirección del receptionista</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+	</div>
+
+  <div class="row my-2">
+		<div class="col-4">
+			<div class="form-floating">
+				<input required formControlName="salary" name="salary" type="number" placeholder="Salario del recepcionista"
+					[className]="checkInput('salary') ? 'form-control is-invalid' : 'form-control'">
+				<label for="salary">Salario del recepcionista</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+		<div class="col-4">
+			<div class="form-floating">
+				<input required formControlName="email" name="email" type="text" placeholder="Correo del receptconista"
+					[className]="checkInput('email') ? 'form-control is-invalid' : 'form-control'">
+				<label for="password">Correo del recepcionista</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+    <div class="col-4">
+      <div class="form-floating">
+        <input required formControlName="userId" name="userId" type="number" placeholder="Id del usuario"
+          [className]="checkInput('userId') ? 'form-control is-invalid' : 'form-control'">
+        <label for="userId">Id del usuario</label>
+        <div class="invalid-feedback">
+          Este campo es requerido
+        </div>
+      </div>
+    </div>
+	</div>
+
+
+
+
+	<div class="row my-2">
+		<div class="col mb-2 d-flex justify-content-center">
+			<button [disabled]="!receptionistForm.valid"
+				[ngClass]="{
+					'btn-success': isUpdate,
+					'btn-primary': !isUpdate,
+					'btn d-flex align-items-center': true
+				}">
+				{{isUpdate ? 'Actualizar recepcionista' : 'Registrar recepcionista'}}
+				<i class="material-icons">save</i>
+			</button>
+		</div>
+	</div>
+
+</form>

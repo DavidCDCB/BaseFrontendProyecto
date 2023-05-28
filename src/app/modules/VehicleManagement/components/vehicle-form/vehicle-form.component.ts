@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
-import { IVehicle } from 'src/app/core/models/Vehicle.interface.ts';
+import { IVehicle } from 'src/app/core/models/Vehicle.interface';
 
 @Component({
   selector: 'app-vehicle-form',

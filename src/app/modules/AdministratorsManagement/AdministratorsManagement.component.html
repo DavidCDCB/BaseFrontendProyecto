@@ -1,3 +1,18 @@
-<p>
-  AdministratorsManagement works!
-</p>
+<div class="d-flex justify-content-center">
+	<h2 class="text-black">Gestión de administradores</h2>
+</div>
+
+<app-administrator-form #childForm (onSubmit)="saveAdministrator($event)" />
+<app-administrator-table *ngIf="administrators.length > 0; else loading"
+  [listOfAdministrators]="administrators"
+  (onDelete)="deleteAdministrator($event)"
+  (onUpdate)="updateAdministrator($event)"
+/>
+
+<ng-template #loading>
+  <div class="d-flex justify-content-center">
+    <div class="spinner-border" role="status"></div>
+  </div>
+</ng-template>
+
+<!--   <button (click)="redirect()" type="button" class="btn btn-primary">Redireccionar</button> -->
