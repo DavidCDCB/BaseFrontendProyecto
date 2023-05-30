@@ -22,21 +22,21 @@ export class ServiceTableComponent {
   @Output()
   onView = new EventEmitter<IRequest>();
 
-  @Output()
-  onIdInconvenient = new EventEmitter<number>();
+/*   @Output()
+  onIdInconvenient = new EventEmitter<number>(); */
 
   filter?: string;
 
   constructor(private router: Router) { }
 
-  redirectToInconvenients(idRequest: number | undefined): void {
+/*   redirectToInconvenients(idRequest: number | undefined): void {
     // this.router.navigate([`/inconvenients/${idRequest}`]);
     this.onIdInconvenient.emit(idRequest);
   }
 
   redirectToProducts(idRequest: number | undefined): void {
     this.router.navigate([`/products/${idRequest}`]);
-  }
+  } */
 
   sendIdDelete(request: IRequest): void {
     this.onDelete.emit(request);
