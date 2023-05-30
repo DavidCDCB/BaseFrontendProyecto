@@ -11,7 +11,7 @@ export class UserFormComponent implements OnInit {
   @Output()
   onSubmit = new EventEmitter<IUser>();
 
-  Rols: any = ['Receptionist', 'Mechanic'];
+  Rols: any = ['Receptionist', 'Mechanic', 'Client'];
 
   userForm!: FormGroup;
   isUpdate: boolean = false;

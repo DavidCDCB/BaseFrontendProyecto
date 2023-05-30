@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IReceptionist } from 'src/app/core/models/Receptionist.interface';
 
 @Component({
@@ -8,7 +8,6 @@ import { IReceptionist } from 'src/app/core/models/Receptionist.interface';
   styleUrls: ['./receptionist-form.component.scss'],
 })
 export class ReceptionistFormComponent implements OnInit {
-
   @Output()
   onSubmit = new EventEmitter<IReceptionist>();
 
@@ -30,14 +29,14 @@ export class ReceptionistFormComponent implements OnInit {
       address: ['RecAddress1', [Validators.required]],
       salary: [500000, [Validators.required]],
       email: ['rec1@gmail.com', [Validators.required]],
-      userId: [1, [Validators.required]],
-    })
+      userId: [1],
+    });
   }
 
   saveReceptionist(): void {
     this.onSubmit.emit(this.receptionistForm.value);
     this.receptionistForm.reset();
-    if(this.isUpdate){
+    if (this.isUpdate) {
       this.isUpdate = false;
     }
   }
@@ -54,5 +53,4 @@ export class ReceptionistFormComponent implements OnInit {
       this.receptionistForm.patchValue(element);
     }
   }
-
 }

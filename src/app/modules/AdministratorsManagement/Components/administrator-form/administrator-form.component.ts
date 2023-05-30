@@ -27,7 +27,7 @@ export class AdministratorFormComponent implements OnInit {
       name: ['NameAdmin1', [Validators.required]],
       surname: ['SurnameAdmin1', [Validators.required]],
       phone: ['31258966545', [Validators.required]],
-      userId: [1, [Validators.required]],
+      userId: [1],
     })
   }
 
