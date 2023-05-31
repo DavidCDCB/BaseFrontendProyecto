@@ -1,0 +1,108 @@
+<form [formGroup]="purchaseForm" (click)="savePurchase()" >
+	<div class="row my-2">
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="purchasePrice" name="purchasePrice" type="number" placeholder="Precio de compra"
+					[className]="checkInput('purchasePrice') ? 'form-control is-invalid' : 'form-control'">
+				<label for="name">Precio de compra</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="salePrice" name="salePrice" type="number" placeholder="Precio de venta"
+					[className]="checkInput('salePrice') ? 'form-control is-invalid' : 'form-control'">
+				<label for="code">Precio de venta</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+	</div>
+
+  <div class="row my-2">
+    <div class="col-6">
+      <div class="form-floating">
+				<input required formControlName="quantity" name="quantity" type="number" placeholder="Cantidad"
+					[className]="checkInput('quantity') ? 'form-control is-invalid' : 'form-control'">
+				<label for="brand">Cantidad</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+    </div>
+    <div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="description" name="description" type="text" placeholder="Descripción de la compra"
+					[className]="checkInput('description') ? 'form-control is-invalid' : 'form-control'">
+				<label for="description">Descripción de la compra</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+  </div>
+
+  <div class="row my-2">
+    <div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="code" name="code" type="text" placeholder="Código de la compra"
+					[className]="checkInput('code') ? 'form-control is-invalid' : 'form-control'">
+				<label for="code">Código de la compra</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="datePurchase" name="datePurchase" type="date" placeholder="Fecha de compra"
+					[className]="checkInput('datePurchase') ? 'form-control is-invalid' : 'form-control'">
+				<label for="name">Fecha de compra</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+	</div>
+
+  <div class="row my-2">
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="productId" name="productId" type="number" placeholder="Id del producto"
+					[className]="checkInput('productId') ? 'form-control is-invalid' : 'form-control'">
+				<label for="name">Id del producto</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="supplierId" name="supplierId" type="number" placeholder="Id del proveedor"
+					[className]="checkInput('supplierId') ? 'form-control is-invalid' : 'form-control'">
+				<label for="code">Id del proveedor</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row my-2">
+		<div class="col mb-2 d-flex justify-content-center">
+			<button [disabled]="!purchaseForm.valid"
+				[ngClass]="{
+					'btn-success': isUpdate,
+					'btn-primary': !isUpdate,
+					'btn d-flex align-items-center': true
+				}">
+				{{isUpdate ? 'Actualizar compra' : 'Registrar compra'}}
+				<i class="material-icons">save</i>
+			</button>
+		</div>
+	</div>
+
+</form>

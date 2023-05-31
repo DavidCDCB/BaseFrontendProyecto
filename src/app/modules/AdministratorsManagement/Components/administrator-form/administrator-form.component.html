@@ -1,0 +1,63 @@
+<form [formGroup]="administratorForm" (click)="saveAdministrator()" >
+	<div class="row my-2">
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="name" name="name" type="text" placeholder="Nombre del administrador"
+					[className]="checkInput('name') ? 'form-control is-invalid' : 'form-control'">
+				<label for="name">Nombre del administrador</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="surname" name="surname" type="text" placeholder="Apellido del administrador"
+					[className]="checkInput('surname') ? 'form-control is-invalid' : 'form-control'">
+				<label for="surname">Apellido del administrador</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row my-2">
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="phone" name="phone" type="number" placeholder="Contacto del administrador"
+					[className]="checkInput('phone') ? 'form-control is-invalid' : 'form-control'">
+				<label for="phone">Contacto del administrador</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="form-floating">
+				<input required formControlName="userId" name="userId" type="number" placeholder="Identificador del usuario"
+					[className]="checkInput('userId') ? 'form-control is-invalid' : 'form-control'">
+				<label for="userId">Identificador del usuario</label>
+				<div class="invalid-feedback">
+					Este campo es requerido
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="row my-2">
+		<div class="col mb-2 d-flex justify-content-center">
+			<button [disabled]="!administratorForm.valid"
+				[ngClass]="{
+					'btn-success': isUpdate,
+					'btn-primary': !isUpdate,
+					'btn d-flex align-items-center': true
+				}">
+				{{isUpdate ? 'Actualizar usuario' : 'Registrar usuario'}}
+				<i class="material-icons">save</i>
+			</button>
+		</div>
+	</div>
+
+</form>
