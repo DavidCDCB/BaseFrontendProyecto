@@ -12,6 +12,8 @@ export class AdministratorFormComponent implements OnInit {
   @Output()
   onSubmit = new EventEmitter<IAdministrator>();
 
+  Users_id : any = [2, 4, 5, 7, 8, 10, 12, 13, 14, 15, 16, 20, 22, 23, 27, 31, 33, 37, 38, 39, 41, 43, 46, 48, 49, 52];
+
   administratorForm!: FormGroup;
   isUpdate: boolean = false;
   idForUpdate: number = 0;
@@ -24,10 +26,10 @@ export class AdministratorFormComponent implements OnInit {
 
   initForm(): void {
     this.administratorForm = this.formBuilder.group({
-      name: ['NameAdmin1', [Validators.required]],
-      surname: ['SurnameAdmin1', [Validators.required]],
-      phone: ['31258966545', [Validators.required]],
-      userId: [1],
+      name: ['', [Validators.required]],
+      surname: ['', [Validators.required]],
+      phone: ['', [Validators.required]],
+      userId: ['', [Validators.required]]
     })
   }
 
@@ -50,6 +52,16 @@ export class AdministratorFormComponent implements OnInit {
     if (element) {
       this.administratorForm.patchValue(element);
     }
+  }
+
+  get UserId() {
+    return this.administratorForm.get('userId');
+  }
+
+  changeUserId(e: any) {
+    this.UserId?.setValue(e.target.value, {
+      onlySelf: true,
+    });
   }
 
 }

@@ -26,8 +26,8 @@ export class UserFormComponent implements OnInit {
 
   initForm(): void {
     this.userForm = this.formBuilder.group({
-      email: ['test1@gmail.com', [Validators.required]],
-      password: ['Admin12345', [Validators.required]],
+      email: ['', [Validators.required]],
+      password: ['', [Validators.required]],
       role: ['', [Validators.required]],
     });
   }
@@ -39,6 +39,7 @@ export class UserFormComponent implements OnInit {
     if (this.isUpdate) {
       this.isUpdate = false;
     }
+    this.isSubmitted = false;
   }
 
   changeRole(e: any) {
