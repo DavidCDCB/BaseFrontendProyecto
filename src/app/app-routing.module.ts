@@ -34,11 +34,11 @@ import { VehicleReportModule } from './modules/ReportsManagement/Components/vehi
 import { VehicleReportComponent } from './modules/ReportsManagement/Components/vehicle-report/vehicle-report.component';
 
 const routes: Routes = [
-/*   {
+  {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'suppliers',
-  }, */
+    redirectTo: 'login',
+  },
   {
     path: 'login',
     component: LoginsManagementComponent,
