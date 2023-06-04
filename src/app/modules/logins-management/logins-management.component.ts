@@ -24,14 +24,17 @@ export class LoginsManagementComponent implements OnInit {
     private httpLogin: RequestsControllerService<ILogin>,
     private router: Router) { }
   ngOnInit() {
-    this.checkLocalStorage();
+    // this.checkLocalStorage();
+    // this.logAut();
     this.initForm();
   }
 
-  checkLocalStorage(): void {
-    if (localStorage.getItem('token') != null) {
-      this.router.navigate([this.nameHome]);
-    }
+
+
+  //funcion que elimina el token del localstorage
+  logAut(): void {
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
   }
 
   initForm(): void {
@@ -59,10 +62,11 @@ export class LoginsManagementComponent implements OnInit {
         if (data.status == "ok") {
           this.showToast('Credenciales aceptadas', 'success');
           localStorage.setItem('token', data.result);
+          localStorage.setItem('role', data.role);
           this.router.navigate(['/mechanics']);
         }
         else {
-          this.showToast(data.result, 'warning');
+          this.showToast(data.status, 'warning');
         }
 
       },

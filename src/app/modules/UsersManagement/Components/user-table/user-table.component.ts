@@ -34,7 +34,6 @@ export class UserTableComponent {
   }
 
   sendIdDelete(user: IUser): void {
-    
     this.onDelete.emit(user);
   }
 

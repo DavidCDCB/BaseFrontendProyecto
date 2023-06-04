@@ -66,6 +66,11 @@ export class RequestsControllerService<T> {
       })
     )
   }
+  //validar token del backend
+  //GET -> https://localhost:7204/api/User/validate/{token}  Retorna -> request
+  validarToken(id: string): Observable<T> {
+    return this.http.get<T>(this.urApi + "User/validate" + '/' + id, this.httpOptions);
+  }
 
   private getServerErrorMessage(error: HttpErrorResponse): string {
     switch (error.status) {
