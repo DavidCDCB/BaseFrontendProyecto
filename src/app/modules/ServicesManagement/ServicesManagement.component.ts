@@ -4,7 +4,7 @@ import { IServiceRequest, IRequest, IService } from 'src/app/core/models/Service
 import { RequestsControllerService } from 'src/app/services/RequestsController.service';
 import { ServiceFormComponent } from './components/service-form/service-form.component';
 import Swal, { SweetAlertIcon } from 'sweetalert2';
-import { IInconvenient } from 'src/app/core/models/Inconvenient.interface';
+//import { IInconvenient } from 'src/app/core/models/Inconvenient.interface';
 
 @Component({
   selector: 'app-ServicesManagement',

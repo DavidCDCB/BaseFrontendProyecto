@@ -1,4 +1,4 @@
-<form [formGroup]="administratorForm" (click)="saveAdministrator()" >
+<form [formGroup]="administratorForm" (ngSubmit)="saveAdministrator()" >
 	<div class="row my-2">
 		<div class="col-6">
 			<div class="form-floating">
@@ -34,13 +34,12 @@
 			</div>
 		</div>
 		<div class="col-6">
-			<div class="form-floating">
-				<input required formControlName="userId" name="userId" type="number" placeholder="Identificador del usuario"
-					[className]="checkInput('userId') ? 'form-control is-invalid' : 'form-control'">
-				<label for="userId">Identificador del usuario</label>
-				<div class="invalid-feedback">
-					Este campo es requerido
-				</div>
+			<div class="d-grid">
+        <select formControlName="userId" class="custom-select mb-3" (change)="changeUserId($event)"  >
+          <option *ngFor="let userId of Users_id" [ngValue]="userId">
+            {{ userId }}
+          </option>
+        </select>
 			</div>
 		</div>
 	</div>

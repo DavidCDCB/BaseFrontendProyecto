@@ -1,4 +1,4 @@
-<form [formGroup]="userForm" (click)="saveUser()" >
+<form [formGroup]="userForm" (ngSubmit)="saveUser()" >
 	<div class="row my-2">
 		<div class="col-6">
 			<div class="form-floating">
@@ -24,13 +24,17 @@
 
 	<div class="row my-2">
 		<div class="col-6">
-			<div class="form-floating">
-				<input required formControlName="role" name="role" type="text" placeholder="Rol del usuario"
-					[className]="checkInput('role') ? 'form-control is-invalid' : 'form-control'">
-				<label for="role">Rol del usuario</label>
-				<div class="invalid-feedback">
-					Este campo es requerido
-				</div>
+			<div class="d-grid">
+				<select formControlName="role" class="custom-select mb-3" (change)="changeRole($event)"  >
+          <option value="Administrator">Administrator</option>
+          <option *ngFor="let role of Rols" [ngValue]="role">
+            {{ role }}
+          </option>
+        </select>
+        <!-- error block -->
+        <div class="invalid-feedback" *ngIf="isSubmitted && Rols?.invalid">
+          <sup>*</sup> Por favor suministrar un rol válido
+        </div>
 			</div>
 		</div>
   </div>

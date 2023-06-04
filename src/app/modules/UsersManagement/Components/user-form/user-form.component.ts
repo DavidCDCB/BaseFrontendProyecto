@@ -26,19 +26,20 @@ export class UserFormComponent implements OnInit {
 
   initForm(): void {
     this.userForm = this.formBuilder.group({
-      email: ['test1@gmail.com', [Validators.required]],
-      password: ['Admin12345', [Validators.required]],
-      role: ['Administrator', [Validators.required]],
-    })
+      email: ['', [Validators.required]],
+      password: ['', [Validators.required]],
+      role: ['', [Validators.required]],
+    });
   }
 
   saveUser(): void {
     this.onSave();
     this.onSubmit.emit(this.userForm.value);
     this.userForm.reset();
-    if(this.isUpdate){
+    if (this.isUpdate) {
       this.isUpdate = false;
     }
+    this.isSubmitted = false;
   }
 
   changeRole(e: any) {
