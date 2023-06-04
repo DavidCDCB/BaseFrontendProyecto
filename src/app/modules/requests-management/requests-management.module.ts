@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RequestsControllerService } from 'src/app/services/RequestsController.service';
 import { ProductTableComponent } from './components/product-table/product-table.component';
 import { ServiceTableComponent } from './components/service-table/service-table.component';
+import { MechanicTableComponent } from './components/mechanic-table/mechanic-table.component';
 
 
 
@@ -14,7 +15,8 @@ import { ServiceTableComponent } from './components/service-table/service-table.
     RequestsManagementComponent,
     RequestFormComponent,
     ProductTableComponent,
-    ServiceTableComponent
+    ServiceTableComponent,
+    MechanicTableComponent
   ],
   imports: [
     CommonModule,
