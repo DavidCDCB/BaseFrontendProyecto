@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Reporte de productos</h1>
+  <input type="button" value="Download PDF" class="btn btn-success" (click)="SavePDF()">
+  <br>
+  <app-product-table-report *ngIf="products.length > 0; else loading"
+    [listOfProducts]="products"
+  />
+  <ng-template #loading>
+    <div class="d-flex justify-content-center">
+      <div class="spinner-border" role="status"></div>
+    </div>
+  </ng-template>
+</div>
+

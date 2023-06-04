@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { IVehicle } from 'src/app/core/models/Vehicle.interface.ts';
+import { IVehicle } from 'src/app/core/models/Vehicle.interface';
 
 @Component({
   selector: 'app-vehicle-table',
@@ -29,7 +29,7 @@ export class VehicleTableComponent {
 
   filterList(): IVehicle[] | undefined {
     return (this.filter) ? this.listOfVehicles?.filter(vehicle => {
-      return Object.values(vehicle).join('').toLowerCase().includes(this.filter!.toLowerCase()); 
+      return Object.values(vehicle).join('').toLowerCase().includes(this.filter!.toLowerCase());
     }).reverse() : this.listOfVehicles!.reverse();
   }
 }
