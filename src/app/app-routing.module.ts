@@ -19,11 +19,11 @@ import { RequestsManagementModule } from './modules/requests-management/requests
 import { RequestsManagementComponent } from './modules/requests-management/requests-management.component';
 
 const routes: Routes = [
-/*   {
+  {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'suppliers',
-  }, */
+    redirectTo: 'login',
+  },
   {
     path: 'login',
     component: LoginsManagementComponent,
