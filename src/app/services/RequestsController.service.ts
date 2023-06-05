@@ -27,6 +27,9 @@ export class RequestsControllerService<T> {
   getOneElement(endpoint: string, id: string): Observable<T> {
     return this.http.get<T>(this.urApi + endpoint + '/' + id, this.httpOptions);
   }
+  validarToken(id: string): Observable<T> {
+    return this.http.get<T>(this.urApi + "User/validate" + '/' + id, this.httpOptions);
+  }
 
   saveElement(endpoint: string, element: T): Observable<T> {
     console.table(element);
