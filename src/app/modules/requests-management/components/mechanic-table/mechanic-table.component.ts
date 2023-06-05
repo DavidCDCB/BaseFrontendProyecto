@@ -7,8 +7,8 @@ import { IMechanic } from 'src/app/core/models/Mechanic.interface';
   styleUrls: ['./mechanic-table.component.scss']
 })
 export class MechanicTableComponent {
-  @Input()
-  listOfMechanics?: IMechanic[] = [];
+  // @Input()
+  // listOfMechanics?: IMechanic[] = [];
 
 
 }

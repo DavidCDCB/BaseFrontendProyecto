@@ -113,7 +113,7 @@ const routes: Routes = [
     component: PayrollsManagementComponent,
   },
   {
-    path: 'requests',
+    path: 'requests/:id',
     component: RequestsManagementComponent,
   },
   {

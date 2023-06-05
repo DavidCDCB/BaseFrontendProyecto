@@ -49,6 +49,9 @@ export class ServiceTableComponent {
   sendIdView(request: IRequest): void {
     this.onView.emit(request);
   }
+  redirectToRequest(idRequest: number | undefined): void {
+    this.router.navigate([`/requests/${idRequest}`]);
+  }
 
   filterList(): IRequest[] | undefined {
     return (this.filter) ? this.listOfRequest?.filter(client => {

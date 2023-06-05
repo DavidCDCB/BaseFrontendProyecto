@@ -34,6 +34,11 @@
 							(click)="sendIdDelete(serviceRequest)">
 							<i class="material-icons">delete_forever</i>
 						</button>
+            <button (click)="redirectToRequest(serviceRequest.id)" type="button"
+              data-bs-toggle="tooltip" data-bs-placement="top" title="Gestionar Request"
+              class="btn btn-secondary">
+              <i class="material-icons">car_crash</i>
+            </button>
 	<!-- 					<button type="button" class="btn btn-success btn-sm"
 							data-bs-toggle="tooltip" data-bs-placement="top" title="Gestionar Productos"
 							(click)="redirectToProducts(serviceRequest.id)">

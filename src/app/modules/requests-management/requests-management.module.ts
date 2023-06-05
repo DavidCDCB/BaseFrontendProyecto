@@ -4,18 +4,23 @@ import { RequestsManagementComponent } from './requests-management.component';
 import { RequestFormComponent } from './components/request-form/request-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RequestsControllerService } from 'src/app/services/RequestsController.service';
-
+import { InconvenientsManagementModule } from '../inconvenients-management/inconvenients-management.module';
+import { ProductTableComponent } from './components/product-table/product-table.component';
+import { MechanicTableComponent } from './components/mechanic-table/mechanic-table.component';
 
 
 @NgModule({
   declarations: [
     RequestsManagementComponent,
-    RequestFormComponent
+    RequestFormComponent,
+    ProductTableComponent,
+    MechanicTableComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    InconvenientsManagementModule
   ],
   providers: [RequestsControllerService],
 })
