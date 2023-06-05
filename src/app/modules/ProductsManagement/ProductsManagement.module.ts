@@ -13,6 +13,6 @@ import { ProductTableComponent } from './Components/product-table/product-table.
   ],
   declarations: [ProductsManagementComponent, ProductFormComponent, ProductTableComponent],
   providers: [RequestsControllerService],
-  exports: [ProductsManagementComponent]
+  exports: [ProductsManagementComponent, ProductTableComponent]
 })
 export class ProductsManagementModule { }

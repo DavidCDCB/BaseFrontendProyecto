@@ -14,14 +14,15 @@ import { RequestFormComponent } from './components/request-form/request-form.com
   styleUrls: ['./requests-management.component.scss']
 })
 export class RequestsManagementComponent implements OnInit{
-  idRequest!: string;
+  idRequest!: number;
   @Input() requestId!: number;
   @ViewChild('childForm') childFormComponent!: RequestFormComponent;
   // @Output()
   // onDelete = new EventEmitter<IProduct>();
   // @Output()
   // onAdd = new EventEmitter<IProduct>();
-
+  @Output()
+  onIdInconvenient = new EventEmitter<number>();
 
   nameEntityRequest: string = 'RequestProdMechan';
   nameEntityMechanic: string = 'Mechanic';
@@ -32,10 +33,11 @@ export class RequestsManagementComponent implements OnInit{
   inconvenients: IInconvenient[] = [];
   mechanics: IMechanic[] = [];
   request?: IRequestProdMechan = {
-    RequestsId: parseInt(this.idRequest),
+    RequestsId: this.idRequest,
     Mechanics: [],
     Products: [],
   };
+  isUpdate: boolean = false;
 
 
     constructor(
@@ -45,14 +47,26 @@ export class RequestsManagementComponent implements OnInit{
       private HTTPClientMechanic: RequestsControllerService<IMechanic>
     ) { }
     ngOnInit() {
-      this.idRequest = this.route.snapshot.paramMap.get('id')!;
-      // this.getRequests();
+      this.idRequest = parseInt(this.route.snapshot.paramMap.get('id')!);
+      this.getMechanics();
+      this.getProducts();
     }
     getRequests(): IRequestProdMechan[] {
       //TODO: implementar el metodo getRequests
       return null!;
     }
 
+
+
+    getMechanics(): IMechanic[] {
+      this.HTTPClientMechanic.getElement(this.nameEntityMechanic).subscribe({
+        next: (mechanics: IMechanic[]) => {
+          this.mechanics = mechanics;
+        },
+        error: (error) => this.showToast('Error al obtener mechanices', 'error')
+      });
+      return this.mechanics!;
+    }
     getProducts(): IProduct[] {
       this.HTTPClientProduct.getElement(this.nameEntityProduct).subscribe({
         next: (products: IProduct[]) => {
@@ -63,25 +77,34 @@ export class RequestsManagementComponent implements OnInit{
       return this.products!;
     }
 
-    getMechanics(): IMechanic[] {
-      this.HTTPClientMechanic.getElement(this.nameEntityMechanic).subscribe({
-        next: (mechanics: IMechanic[]) => {
-          this.mechanics = mechanics;
-        },
-        error: (error) => this.showToast('Error al obtener mecanicos', 'error')
+    updateMechanic(mechanic: IMechanic): void {
+
+    }
+
+    deleteMechanic(mechanic: IMechanic): void {
+      this.showAlert('¿Realmente desea eliminar el registro?', () => {
+
       });
-      return this.mechanics!;
     }
 
 
+    deleteProduct(product: IProduct): void {
+      this.showAlert('¿Realmente desea eliminar el registro?', () => {
 
+      });
+    }
 
+    updateProduct(product: IProduct): void {
 
-
-
+    }
 
     changeDateFormat(date: string): string{
       return date.split('-').reverse().join('/');
+    }
+
+    redirectToInconvenients(idRequest: number | undefined): void {
+      // this.router.navigate([`/inconvenients/${idRequest}`]);
+      this.onIdInconvenient.emit(idRequest);
     }
 
     showToast(text: string, icon: SweetAlertIcon): void {

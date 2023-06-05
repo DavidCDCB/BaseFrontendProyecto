@@ -19,6 +19,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
+  exports: [
+    MechanicTableComponent
+  ],
   providers: [RequestsControllerService],
 })
 export class MechanicsManagementModule { }

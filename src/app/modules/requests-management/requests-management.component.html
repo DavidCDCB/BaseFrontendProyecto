@@ -1,9 +1,35 @@
-
 <div class="d-flex justify-content-center">
-	<h2 class="text-bkack">Gestión de Peticiones</h2>
+  <h2 class="text-bkack">Gestión de Peticiones</h2>
+</div>
+<!-- <div class="d-flex justify-content-left">
+  <h6 class="text-bkack">Adicionar Inconvenientes</h6>
 </div>
 
-<app-mechanic-table/>
+<button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="tooltip" data-bs-placement="top"
+  title="Gestionar Inconvenientes" (click)="redirectToInconvenients(this.idRequest)" data-bs-toggle="modal"
+  data-bs-target="#inconvenientModal">
+  <i class="material-icons">warning</i>
+</button> -->
+
+<!-- TODO: generar un boton para enviar infor -->
+
+<div class="d-flex justify-content-left">
+  <h6 class="text-bkack">Seleccionar mecanicos</h6>
+</div>
+<div>
+  <app-mechanic-table *ngIf="mechanics.length > 0; else loading" [listOfMechanics]="mechanics"
+    (onDelete)="deleteMechanic($event)" (onUpdate)="updateMechanic($event)" />
+</div>
+<div class="espacio-entre-componentes"></div>
+<div class="d-flex justify-content-left">
+  <h6 class="text-bkack">Seleccionar productos</h6>
+</div>
+<div>
+  <app-product-table *ngIf="products.length > 0; else loading" [listOfProducts]="products"
+    (onDelete)="deleteProduct($event)" (onUpdate)="updateProduct($event)" />
+</div>
+
+
 
 <ng-template #loading>
   <div class="d-flex justify-content-center">
