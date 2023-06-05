@@ -1,0 +1,32 @@
+<input [(ngModel)]="filter" (input)="filterListProduct" type="text" placeholder="Filtrar..." class="form-control">
+
+<div class="tabla">
+	<table class="table table-sm table-striped table-hover">
+		<thead class="table-dark header">
+			<tr>
+				<th scope="Origen">name</th>
+				<th scope="Origen">code</th>
+				<th scope="Origen">brand</th>
+        <th scope="Origen">price</th>
+				<th scope="Origen">Opciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let serviceRequest of filterListProduct(); let i = index">
+				<td>{{serviceRequest.name}}</td>
+				<td>{{serviceRequest.code}}</td>
+        <td>{{serviceRequest.brand}}</td>
+        <td>{{serviceRequest.price}}</td>
+				<td>
+					<div class="d-flex justify-content-around">
+						<button type="button" class="btn btn-info btn-sm"
+							data-bs-toggle="tooltip" data-bs-placement="top" title="delete"
+							>
+							<i class="material-icons">delete</i>
+						</button>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
