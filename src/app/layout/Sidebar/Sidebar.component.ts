@@ -9,7 +9,14 @@ export class SidebarComponent implements OnInit {
 
   constructor() { }
 
+
   ngOnInit() {
+  }
+  validarToken(): boolean {
+    if (localStorage.getItem('token') != null) {
+      return true;
+    }
+    return false;
   }
 
 }

@@ -18,7 +18,7 @@ export class LoginsManagementComponent implements OnInit {
   isUpdate: boolean = false;
   idForUpdate: number = 0;
   nameEntity: string = 'User';
-  nameHome: string = '/mechanics';
+  nameHome: string = '/clients';
 
   constructor(private formBuilder: FormBuilder,
     private httpLogin: RequestsControllerService<ILogin>,
@@ -36,8 +36,8 @@ export class LoginsManagementComponent implements OnInit {
 
   initForm(): void {
     this.loginForm = this.formBuilder.group({
-      email: ['JoseAntonio76@corpfolder.com', [Validators.required]],
-      password: ['Incrasar', [Validators.required]]
+      email: ['robin1@gmail.com', [Validators.required]],
+      password: ['123456', [Validators.required]]
     })
   }
 
@@ -59,7 +59,7 @@ export class LoginsManagementComponent implements OnInit {
         if (data.status == "ok") {
           this.showToast('Credenciales aceptadas', 'success');
           localStorage.setItem('token', data.result);
-          this.router.navigate(['/mechanics']);
+          this.router.navigate(['/clients']);
         }
         else {
           this.showToast(data.result, 'warning');

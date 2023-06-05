@@ -32,6 +32,7 @@ import { ServiceReportModule } from './modules/ReportsManagement/Components/serv
 import { ServiceReportComponent } from './modules/ReportsManagement/Components/service-report/service-report.component';
 import { VehicleReportModule } from './modules/ReportsManagement/Components/vehicle-report/vehicle-report.module';
 import { VehicleReportComponent } from './modules/ReportsManagement/Components/vehicle-report/vehicle-report.component';
+import { PermisosLoginGuard } from './guards/permisos-login.guard';
 
 const routes: Routes = [
   {
@@ -50,6 +51,7 @@ const routes: Routes = [
   {
     path: 'clients',
     component: ClientsManagementComponent,
+    canActivate: [PermisosLoginGuard]
   },
   {
     path: 'users',
@@ -102,6 +104,7 @@ const routes: Routes = [
   {
     path: 'mechanics',
     component: MechanicsManagementComponent,
+    canActivate: [PermisosLoginGuard]
   },
   {
     path: 'payrolls',

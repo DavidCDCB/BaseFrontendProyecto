@@ -11,5 +11,11 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
   }
+  validarToken(): boolean {
+    if (localStorage.getItem('token') != null) {
+      return true;
+    }
+    return false;
+  }
 
 }
