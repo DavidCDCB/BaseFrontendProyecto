@@ -24,7 +24,7 @@ export class RequestsManagementComponent implements OnInit{
   @Output()
   onIdInconvenient = new EventEmitter<number>();
 
-  nameEntityRequest: string = 'RequestProdMechan';
+  nameEntityRequest: string = 'Request/products';
   nameEntityMechanic: string = 'Mechanic';
   nameEntityProduct: string = 'Product';
   nameEntityInconvenient: string = 'Inconvenient';
@@ -111,11 +111,14 @@ export class RequestsManagementComponent implements OnInit{
     }
 
     enviarRequest(): void {
+      this.request!.RequestsId = this.idRequest;
+      console.log(this.request);
       if (this.request!.Mechanics.length > 0 && this.request!.Products.length > 0) {
         this.HTTPClientRequest.saveElement(this.nameEntityRequest, this.request!).subscribe({
           next: (request: IRequestProdMechan) => {
             this.showToast('Solicitud enviada correctamente', 'success');
             // this.childFormComponent.resetForm();
+            console.log(request);
           },
           error: (error) => this.showToast('Error al enviar la solicitud', 'error')
         });
