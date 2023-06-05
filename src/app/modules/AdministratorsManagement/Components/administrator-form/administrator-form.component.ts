@@ -29,7 +29,7 @@ export class AdministratorFormComponent implements OnInit {
       name: ['', [Validators.required]],
       surname: ['', [Validators.required]],
       phone: ['', [Validators.required]],
-      userId: ['', [Validators.required]]
+      userId: [46, [Validators.required]]
     })
   }
 

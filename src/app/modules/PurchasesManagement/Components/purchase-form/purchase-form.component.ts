@@ -40,6 +40,7 @@ export class PurchaseFormComponent implements OnInit {
 
   savePurchase(): void {
     this.purchaseForm.value.productId = parseInt(this.purchaseForm.value.productId);
+    this.purchaseForm.value.supplierId = parseInt(this.purchaseForm.value.supplierId);
     this.onSubmit.emit(this.purchaseForm.value);
     this.purchaseForm.reset();
     if (this.isUpdate) {

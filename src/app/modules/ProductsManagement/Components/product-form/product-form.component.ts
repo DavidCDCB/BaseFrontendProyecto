@@ -24,11 +24,10 @@ export class ProductFormComponent implements OnInit {
 
   initForm(): void {
     this.productForm = this.formBuilder.group({
-      name: ['ProductTes1', [Validators.required]],
-      code: ['CodigoProd1', [Validators.required]],
-      brand: ['BrandProd1', [Validators.required]],
-      quantity: [15, [Validators.required]],
-      description: ['DescriptionProd1', [Validators.required]],
+      name: ['Producto10', [Validators.required]],
+      code: ['COD10A', [Validators.required]],
+      brand: ['Generic', [Validators.required]],
+      description: ['Producto inicial para clientes', [Validators.required]],
     })
   }
 

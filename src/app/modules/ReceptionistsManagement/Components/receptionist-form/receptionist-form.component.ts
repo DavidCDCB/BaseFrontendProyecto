@@ -40,7 +40,7 @@ export class ReceptionistFormComponent implements OnInit {
       address: ['', [Validators.required]],
       salary: [0, [Validators.required]],
       email: ['', [Validators.required]],
-      userId: [, [Validators.required]],
+      userId: [50, [Validators.required]],
     });
   }
 
