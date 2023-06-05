@@ -33,6 +33,8 @@ import { ServiceReportComponent } from './modules/ReportsManagement/Components/s
 import { VehicleReportModule } from './modules/ReportsManagement/Components/vehicle-report/vehicle-report.module';
 import { VehicleReportComponent } from './modules/ReportsManagement/Components/vehicle-report/vehicle-report.component';
 import { PermisosLoginGuard } from './guards/permisos-login.guard';
+import { RequestsManagementModule } from './modules/requests-management/requests-management.module';
+import { RequestsManagementComponent } from './modules/requests-management/requests-management.component';
 
 const routes: Routes = [
   {
@@ -111,6 +113,10 @@ const routes: Routes = [
     component: PayrollsManagementComponent,
   },
   {
+    path: 'requests',
+    component: RequestsManagementComponent,
+  },
+  {
     path: '**',
     redirectTo: '',
   }
@@ -134,7 +140,8 @@ const routes: Routes = [
     ProductReportModule,
     PurchaseReportModule,
     ServiceReportModule,
-    VehicleReportModule
+    VehicleReportModule,
+    RequestsManagementModule
   ],
   exports: [RouterModule]
 })
