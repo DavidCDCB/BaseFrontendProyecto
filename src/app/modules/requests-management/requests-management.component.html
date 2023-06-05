@@ -12,13 +12,14 @@
 </button> -->
 
 <!-- TODO: generar un boton para enviar infor -->
+<button type="button" class="btn btn-success" (click)="enviarRequest()" >Enviar</button>
 
 <div class="d-flex justify-content-left">
   <h6 class="text-bkack">Seleccionar mecanicos</h6>
 </div>
 <div>
   <app-mechanic-table *ngIf="mechanics.length > 0; else loading" [listOfMechanics]="mechanics"
-    (onDelete)="deleteMechanic($event)" (onUpdate)="updateMechanic($event)" />
+    (onDelete)="deleteMechanic($event)" (onUpdate)="addMechanic($event)" />
 </div>
 <div class="espacio-entre-componentes"></div>
 <div class="d-flex justify-content-left">
@@ -26,12 +27,12 @@
 </div>
 <div>
   <app-product-table *ngIf="products.length > 0; else loading" [listOfProducts]="products"
-    (onDelete)="deleteProduct($event)" (onUpdate)="updateProduct($event)" />
+    (onDelete)="deleteProduct($event)" (onUpdate)="addProduct($event)" />
 </div>
-
-
 
 <ng-template #loading>
   <div class="d-flex justify-content-center">
     <div class="spinner-border" role="status"></div>
   </div>
+
+

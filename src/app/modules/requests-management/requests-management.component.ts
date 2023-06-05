@@ -77,12 +77,18 @@ export class RequestsManagementComponent implements OnInit{
       return this.products!;
     }
 
-    updateMechanic(mechanic: IMechanic): void {
+    addMechanic(mechanic: IMechanic): void {
+      console.log('adicionado');
+      this.request!.Mechanics.push(mechanic);
 
     }
 
     deleteMechanic(mechanic: IMechanic): void {
       this.showAlert('¿Realmente desea eliminar el registro?', () => {
+        console.log('Eliminando');
+        if (this.request!.Mechanics.length > 0) {
+          this.request!.Mechanics.splice(this.request!.Mechanics.indexOf(mechanic), 1);
+        }
 
       });
     }
@@ -90,13 +96,34 @@ export class RequestsManagementComponent implements OnInit{
 
     deleteProduct(product: IProduct): void {
       this.showAlert('¿Realmente desea eliminar el registro?', () => {
+        //quiero que adiciones el producto a la this.request.mechanics
+        if(this.request!.Products.length > 0){
+          this.request!.Products.splice(this.request!.Products.indexOf(product), 1);
+        }
 
       });
     }
 
-    updateProduct(product: IProduct): void {
+    addProduct(product: IProduct): void {
+      console.log('adicionado');
+      this.request!.Products.push(product);
 
     }
+
+    enviarRequest(): void {
+      if (this.request!.Mechanics.length > 0 && this.request!.Products.length > 0) {
+        this.HTTPClientRequest.saveElement(this.nameEntityRequest, this.request!).subscribe({
+          next: (request: IRequestProdMechan) => {
+            this.showToast('Solicitud enviada correctamente', 'success');
+            // this.childFormComponent.resetForm();
+          },
+          error: (error) => this.showToast('Error al enviar la solicitud', 'error')
+        });
+      } else {
+        this.showToast('Debe seleccionar al menos un mecanico y un producto', 'warning');
+      }
+    }
+
 
     changeDateFormat(date: string): string{
       return date.split('-').reverse().join('/');
