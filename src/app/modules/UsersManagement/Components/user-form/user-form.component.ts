@@ -28,7 +28,7 @@ export class UserFormComponent implements OnInit {
     this.userForm = this.formBuilder.group({
       email: ['', [Validators.required]],
       password: ['', [Validators.required]],
-      role: ['', [Validators.required]],
+      role: ['Receptionist', [Validators.required]],
     });
   }
 
